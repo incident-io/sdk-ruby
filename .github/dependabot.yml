@@ -1,0 +1,14 @@
+# The workflows pin every action by SHA, which nothing else can bump.
+#
+# No bundler entry: Gemfile.lock is not committed (see .gitignore), so there
+# is nothing for Dependabot to update. Consumers resolve the gemspec's ranges
+# fresh, and CI does the same on every run.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]

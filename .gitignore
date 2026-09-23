@@ -1,0 +1,17 @@
+# The schema the generator reads; rebuilt from openapi.json by make generate.
+/build
+
+/pkg
+*.gem
+/.verify
+.bundle/
+vendor/
+
+# Dev-only lock. This is a library, so we resolve dependencies fresh rather
+# than pinning what consumers get, and the CI matrix spans Ruby versions that
+# resolve to different dependency versions.
+Gemfile.lock
+
+# scripts/ runs under python3.
+__pycache__/
+*.pyc

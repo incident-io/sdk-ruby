@@ -1,0 +1,67 @@
+name: test
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  # Every supported minor, not just the newest: Ruby has no compile step, so
+  # the only way to know generated code runs on 3.0 is to run it there, and
+  # the declared floor is otherwise a promise nothing checks.
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: ["3.0", "3.1", "3.2", "3.3", "3.4", "4.0"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ruby/setup-ruby@762794c140bbeda0f1224786aa33b4b46783a6c1 # v1.326.0
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      # Syntax check, build and install the gem, load every constant, check the
+      # API surface, then the specs.
+      - run: make test
+      - name: Check the surface baseline is committed
+        run: |
+          # make verify records additions to api-surface.txt. On a pull request
+          # that means the baseline was not regenerated alongside the code.
+          if ! git diff --quiet api-surface.txt; then
+            echo "::error::api-surface.txt is out of date. Run 'make verify' and commit it."
+            git diff --stat api-surface.txt
+            exit 1
+          fi
+
+  # Fail if the committed client is out of date with the committed schema, that
+  # is, someone changed openapi.json or scripts/ without re-running the
+  # generator. Regenerates from the committed schema, not the live one, so this
+  # stays a check on the commit rather than a second copy of the sync job.
+  generate-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      # ~30MB from Maven Central, fetched by the Makefile into /tmp. Without
+      # this every pull request pulls it twice, and a Maven Central blip
+      # reddens unrelated PRs. Keyed on the Makefile because that is where
+      # OPENAPI_GENERATOR_VERSION lives.
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: /tmp/openapi-generator-cli-*.jar
+          key: openapi-generator-${{ hashFiles('Makefile') }}
+      # A post-generation pass anchors on the text the generator emits, so it
+      # fails loudly when that changes. This catches the other half: the
+      # generator changing the template an anchor comes from, including
+      # renaming or removing the file.
+      - run: make template-drift
+      - run: make generate
+      - name: Check for drift
+        run: |
+          # --porcelain, not `git diff --quiet`: the latter ignores untracked
+          # files, so a new model or endpoint would pass unnoticed.
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::Generated client is out of date. Run 'make generate' and commit the result."
+            git status --porcelain
+            exit 1
+          fi

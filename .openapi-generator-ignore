@@ -1,0 +1,27 @@
+# The ruby generator has no --meta none, so without this it rewrites the
+# gemspec, the README and its own CI config on every hourly run, taking the
+# release version, the Ruby floor and the packaged file list with them.
+#
+# Everything listed here is ours. Everything else under lib/ is generated.
+
+incident_io.gemspec
+Gemfile
+Rakefile
+README.md
+.gitignore
+.rspec
+.rubocop.yml
+.gitlab-ci.yml
+.travis.yml
+git_push.sh
+
+# Hand-written. version.rb holds the release version; errors.rb and
+# deprecation.rb are what scripts/fix_generated.py wires the generated code to.
+lib/incident_io_api.rb
+lib/incident_io/version.rb
+lib/incident_io/errors.rb
+lib/incident_io/deprecation.rb
+
+# Our own specs. The generator's per-file stubs are switched off in the
+# Makefile, but it still writes spec_helper.rb.
+spec/**

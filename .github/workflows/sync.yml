@@ -1,17 +1,14 @@
 name: sync
 
-# Runs hourly once enabled. When the schema hasn't changed the job exits in
+# Runs hourly. When the schema hasn't changed the job exits in
 # seconds, which is what makes that affordable.
 #
 # Do not rename this file. RubyGems' trusted-publishing binding is registered
 # against the repo and this filename, so a rename breaks publishing silently.
 on:
-  # Disabled until trusted publishing is set up on RubyGems.org: without it the
-  # first schema change would tag and release, then fail at the publish step.
-  # Uncomment to start the hourly loop. Avoid minute 0, which is GitHub's most
-  # contended slot.
-  # schedule:
-  #   - cron: "29 * * * *" # hourly
+  # Avoid minute 0, which is GitHub's most contended scheduling slot.
+  schedule:
+    - cron: "29 * * * *" # hourly
   workflow_dispatch:
     inputs:
       bump:

@@ -679,6 +679,69 @@ module IncidentIo
       return data, status_code, headers
     end
 
+    # ShowStatusPage Status Pages V2
+    # Show a single status page.  This endpoint requires a valid API key but no specific scopes. Use ShowStatusPageStructure to see the components and groups configured on the page.
+    # @param status_page_id [String] ID of the status page. You can find this by calling the ListStatusPages endpoint.
+    # @param [Hash] opts the optional parameters
+    # @return [StatusPagesShowStatusPageResultV2]
+    def status_pages_v2_show_status_page(status_page_id, opts = {})
+      data, _status_code, _headers = status_pages_v2_show_status_page_with_http_info(status_page_id, opts)
+      data
+    end
+
+    # ShowStatusPage Status Pages V2
+    # Show a single status page.  This endpoint requires a valid API key but no specific scopes. Use ShowStatusPageStructure to see the components and groups configured on the page.
+    # @param status_page_id [String] ID of the status page. You can find this by calling the ListStatusPages endpoint.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(StatusPagesShowStatusPageResultV2, Integer, Hash)>] StatusPagesShowStatusPageResultV2 data, response status code and response headers
+    def status_pages_v2_show_status_page_with_http_info(status_page_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesV2Api.status_pages_v2_show_status_page ...'
+      end
+      # verify the required parameter 'status_page_id' is set
+      if @api_client.config.client_side_validation && status_page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'status_page_id' when calling StatusPagesV2Api.status_pages_v2_show_status_page"
+      end
+      # resource path
+      local_var_path = '/v2/status_pages/{status_page_id}'.sub('{status_page_id}', CGI.escape(status_page_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'StatusPagesShowStatusPageResultV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['BearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"StatusPagesV2Api.status_pages_v2_show_status_page",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesV2Api#status_pages_v2_show_status_page\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # ShowStatusPageComponentAvailability Status Pages V2
     # Show availability for a status page component over a time window.  Pass start_at and end_at as RFC3339 timestamps. The window cannot be longer than 366 days. Availability uses the same rules as the public status page: full and partial outages count as downtime, overlapping impacts are merged, and time before we have data for the component is excluded rather than counted as up.  This endpoint requires a valid API key but no specific scopes. Use ListStatusPages and ShowStatusPageStructure to find status page and component IDs.
     # @param start_at [Time] Start of the availability window

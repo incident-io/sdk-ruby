@@ -4,5 +4,5 @@ module IncidentIo
   # The release workflow sets this before building, so it tracks whatever we
   # last published. Listed in .openapi-generator-ignore so regeneration can't
   # reset it.
-  VERSION = "1.1.0"
+  VERSION = "1.2.0"
 end

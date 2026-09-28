@@ -14,20 +14,19 @@ require 'date'
 require 'time'
 
 module IncidentIo
-  class PolicyFindingScheduleImpactedUserV2 < ApiModelBase
-    # Why this user's entries don't count as cover  Known values: `no_on_call_seat`, `user_deactivated`, `notifications_paused`
-    attr_accessor :cause
+  # Content of a rich text field. The type says how contents is written.
+  class AnnouncementTemplateRichTextV2 < ApiModelBase
+    # The content, as markdown. Write incident variables as {{name}}, e.g. {{incident.reference}}.
+    attr_accessor :contents
 
-    attr_accessor :name
-
-    attr_accessor :user_id
+    # How contents is written. Only markdown is supported today.  Known values: `markdown`
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'cause' => :'cause',
-        :'name' => :'name',
-        :'user_id' => :'user_id'
+        :'contents' => :'contents',
+        :'type' => :'type'
       }
     end
 
@@ -44,9 +43,8 @@ module IncidentIo
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'cause' => :'String',
-        :'name' => :'String',
-        :'user_id' => :'String'
+        :'contents' => :'String',
+        :'type' => :'String'
       }
     end
 
@@ -60,34 +58,28 @@ module IncidentIo
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `IncidentIo::PolicyFindingScheduleImpactedUserV2` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `IncidentIo::AnnouncementTemplateRichTextV2` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `IncidentIo::PolicyFindingScheduleImpactedUserV2`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `IncidentIo::AnnouncementTemplateRichTextV2`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'cause')
-        self.cause = attributes[:'cause']
+      if attributes.key?(:'contents')
+        self.contents = attributes[:'contents']
       else
-        self.cause = nil
+        self.contents = nil
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       else
-        self.name = nil
-      end
-
-      if attributes.key?(:'user_id')
-        self.user_id = attributes[:'user_id']
-      else
-        self.user_id = nil
+        self.type = nil
       end
     end
 
@@ -96,16 +88,12 @@ module IncidentIo
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @cause.nil?
-        invalid_properties.push('invalid value for "cause", cause cannot be nil.')
+      if @contents.nil?
+        invalid_properties.push('invalid value for "contents", contents cannot be nil.')
       end
 
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @user_id.nil?
-        invalid_properties.push('invalid value for "user_id", user_id cannot be nil.')
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
       invalid_properties
@@ -115,40 +103,29 @@ module IncidentIo
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @cause.nil?
-      return false if @name.nil?
-      return false if @user_id.nil?
+      return false if @contents.nil?
+      return false if @type.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] cause Value to be assigned
-    def cause=(cause)
-      if cause.nil?
-        fail ArgumentError, 'cause cannot be nil'
+    # @param [Object] contents Value to be assigned
+    def contents=(contents)
+      if contents.nil?
+        fail ArgumentError, 'contents cannot be nil'
       end
 
-      @cause = cause
+      @contents = contents
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
+    # @param [Object] type Value to be assigned
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'type cannot be nil'
       end
 
-      @name = name
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] user_id Value to be assigned
-    def user_id=(user_id)
-      if user_id.nil?
-        fail ArgumentError, 'user_id cannot be nil'
-      end
-
-      @user_id = user_id
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -156,9 +133,8 @@ module IncidentIo
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          cause == o.cause &&
-          name == o.name &&
-          user_id == o.user_id
+          contents == o.contents &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -170,7 +146,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cause, name, user_id].hash
+      [contents, type].hash
     end
 
     # Builds the object from hash

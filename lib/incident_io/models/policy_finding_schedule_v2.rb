@@ -16,7 +16,7 @@ require 'time'
 module IncidentIo
   # Set when policy_type is schedule. Describes a gap in on-call cover.
   class PolicyFindingScheduleV2 < ApiModelBase
-    # Why the gap exists  Known values: `nobody_scheduled`, `no_on_call_seat`, `user_deactivated`
+    # Why the gap exists  Known values: `nobody_scheduled`, `no_on_call_seat`, `user_deactivated`, `notifications_paused`
     attr_accessor :cause
 
     # When the gap ends

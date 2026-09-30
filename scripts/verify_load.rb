@@ -26,6 +26,9 @@
 # disappears. Additions are fine; removals are not. One line per name rather
 # than per class, because a composite line would be rewritten whenever anything
 # on it changed, so adding a field would read as a removal.
+#
+# `check` exits 3 when the only problem is removed lines, and 1 for anything
+# else. The release reads 3 as "this is a major" and 1 as a broken build.
 
 mode, path = ARGV
 abort "usage: ruby #{$PROGRAM_NAME} check|write <api-surface.txt>" unless %w[check write].include?(mode) && path
@@ -90,9 +93,8 @@ if removed.any?
   warn removed.first(50).map { |line| "  - #{line}" }
   warn "  ... and #{removed.size - 50} more" if removed.size > 50
   warn ""
-  warn "Each one breaks a caller that uses it. If this is a deliberate major"
-  warn "release, run `make surface` and commit api-surface.txt with it."
-  exit 1
+  warn "Each one breaks a caller that uses it, so the release cuts a major."
+  exit 3
 end
 
 # In check mode, record the additions, so the next release checks against

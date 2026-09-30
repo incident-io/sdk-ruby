@@ -40,10 +40,11 @@ Run `bundle install` once before `make test`.
   *installed* gem, and checks the API surface.
 - `make test`: `make verify`, then the specs. This is what CI runs.
 - `make surface`: accept the current API surface as the baseline, removals
-  included. Only alongside a major version.
+  included. The release does this itself.
 - `make template-drift`: fail if the generator's templates changed under the
   anchors `scripts/fix_generated.py` matches on.
-- `make oasdiff`: the schema gate that stops a release, runnable by hand.
+- `make oasdiff`: the schema gate that makes a release a major, runnable by
+  hand.
 - `make smoke`: read-only checks against the live API. Needs
   `INCIDENT_API_KEY`; a viewer-scoped key is enough.
 
@@ -51,30 +52,30 @@ Run `bundle install` once before `make test`.
 
 `.github/workflows/sync.yml`, hourly. When the live schema differs from the
 committed one it regenerates, verifies on the release Ruby and builds on the
-minimum Ruby, bumps the **minor** version, commits, tags, and pushes the gem
-to RubyGems. No human unless a gate trips.
+minimum Ruby, bumps the version, commits, tags, and pushes the gem to
+RubyGems. No human unless something fails.
 
-Two gates stop it:
+Two gates decide the version. If either reports a break, the release is a
+**major**, and its GitHub release notes start with the oasdiff report and the
+list of removed names. Otherwise it is a **minor**.
 
 - **oasdiff** compares the schemas, with the adjustments in
   `oasdiff-severity.txt`.
 - **The API surface check** in `make verify` compares the Ruby API against
   `api-surface.txt`: one line per API method (with its number of positional
   arguments), per model attribute and per error class. A line that disappears
-  fails the release. This catches what oasdiff rates harmless but a caller
-  does not: an operation moved to another tag moves its method to another
-  class, and a renamed component schema renames a class. When nothing
-  disappeared, the check writes additions into `api-surface.txt`, and the
-  release commits it.
+  makes the release a major (`verify_load.rb check` exits 3). This catches
+  what oasdiff rates harmless but a caller does not: an operation moved to
+  another tag moves its method to another class, and a renamed component
+  schema renames a class. The release then rewrites `api-surface.txt`,
+  additions and removals included, and commits it.
 
-Either one halting the run leaves the new schema uncommitted, so every later
-run sees the same diff and halts the same way until someone acts. That is
-deliberate, and why the issue it files is deduped.
+To force a major for a break neither gate sees, run the workflow from the
+Actions tab with **bump: major**. The default, **auto**, picks major or minor
+from the gates. There is no way to release a detected break as a minor.
 
-To release a breaking change: run `make surface` if the Ruby API lost names
-and commit `api-surface.txt`, then run the workflow from the Actions tab with
-**bump: major** and **acknowledge_breaking: true**. Both are required
-together.
+A human is needed only when something fails, which files a `release-stuck`
+issue.
 
 ### Why the generated code is shaped the way it is
 
@@ -144,4 +145,4 @@ its own policy says may change template-bound variables, and those are what
 3. Copy the new templates over `templates/pristine/`, run `make generate`, and
    check the pass still reports every fix and all deprecated operations.
 4. `make test`. A method or class that changed name fails the surface check;
-   that is a breaking change, not something to accept with `make surface`.
+   that is a breaking change and needs a major release.

@@ -516,6 +516,8 @@ lib/incident_io/models/audit_logs_timeline_item_deleted_v1.rb
 lib/incident_io/models/audit_logs_twilio_connection_created_v1.rb
 lib/incident_io/models/audit_logs_twilio_connection_deleted_v1.rb
 lib/incident_io/models/audit_logs_twilio_connection_updated_v1.rb
+lib/incident_io/models/audit_logs_user_api_key_created_v1.rb
+lib/incident_io/models/audit_logs_user_api_key_deleted_v1.rb
 lib/incident_io/models/audit_logs_user_created_v1.rb
 lib/incident_io/models/audit_logs_user_deactivated_v1.rb
 lib/incident_io/models/audit_logs_user_logged_in_v1.rb

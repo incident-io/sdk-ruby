@@ -473,6 +473,8 @@ IncidentIo.autoload :AuditLogsTimelineItemDeletedV1, 'incident_io/models/audit_l
 IncidentIo.autoload :AuditLogsTwilioConnectionCreatedV1, 'incident_io/models/audit_logs_twilio_connection_created_v1'
 IncidentIo.autoload :AuditLogsTwilioConnectionDeletedV1, 'incident_io/models/audit_logs_twilio_connection_deleted_v1'
 IncidentIo.autoload :AuditLogsTwilioConnectionUpdatedV1, 'incident_io/models/audit_logs_twilio_connection_updated_v1'
+IncidentIo.autoload :AuditLogsUserAPIKeyCreatedV1, 'incident_io/models/audit_logs_user_api_key_created_v1'
+IncidentIo.autoload :AuditLogsUserAPIKeyDeletedV1, 'incident_io/models/audit_logs_user_api_key_deleted_v1'
 IncidentIo.autoload :AuditLogsUserCreatedV1, 'incident_io/models/audit_logs_user_created_v1'
 IncidentIo.autoload :AuditLogsUserDeactivatedV1, 'incident_io/models/audit_logs_user_deactivated_v1'
 IncidentIo.autoload :AuditLogsUserLoggedInV1, 'incident_io/models/audit_logs_user_logged_in_v1'

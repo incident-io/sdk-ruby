@@ -34,6 +34,7 @@ lib/incident_io/api/incident_relationships_v1_api.rb
 lib/incident_io/api/incident_roles_v1_api.rb
 lib/incident_io/api/incident_roles_v2_api.rb
 lib/incident_io/api/incident_statuses_v1_api.rb
+lib/incident_io/api/incident_team_memberships_v1_api.rb
 lib/incident_io/api/incident_templates_v1_api.rb
 lib/incident_io/api/incident_timeline_items_v2_api.rb
 lib/incident_io/api/incident_timestamps_v2_api.rb
@@ -851,6 +852,11 @@ lib/incident_io/models/incident_statuses_list_result_v1.rb
 lib/incident_io/models/incident_statuses_show_result_v1.rb
 lib/incident_io/models/incident_statuses_update_payload_v1.rb
 lib/incident_io/models/incident_statuses_update_result_v1.rb
+lib/incident_io/models/incident_team_membership_v1.rb
+lib/incident_io/models/incident_team_memberships_create_payload_v1.rb
+lib/incident_io/models/incident_team_memberships_create_result_v1.rb
+lib/incident_io/models/incident_team_memberships_revoke_payload_v1.rb
+lib/incident_io/models/incident_team_v1.rb
 lib/incident_io/models/incident_template_auto_generated_binding_payload_v1.rb
 lib/incident_io/models/incident_template_auto_generated_binding_v1.rb
 lib/incident_io/models/incident_template_binding_payload_v1.rb

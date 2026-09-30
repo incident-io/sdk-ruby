@@ -88,8 +88,8 @@ verify: package ## Package, load every constant, and check the API surface
 test: verify ## Everything verify does, plus the specs
 	bundle exec rspec
 
-# Accept the current surface as the new baseline, removals included. Run after
-# a deliberate breaking change, alongside the major version bump.
+# Accept the current surface as the new baseline, removals included. The
+# release runs this itself, after deciding the version.
 surface: package ## Rewrite api-surface.txt from the installed gem
 	$(VERIFY_LOAD) write $(CURDIR)/api-surface.txt
 
@@ -119,8 +119,7 @@ template-drift: $(GENERATOR) ## Fail if the generator's templates moved under us
 		echo "scripts/fix_generated.py still applies, then copy the new files over"; \
 		echo "templates/pristine/."; exit 1; }
 
-# The gate that stops an unattended release, runnable by hand. The
-# stuck-release issue names it as a likely cause, so it needs a command.
+# The schema gate that makes a release a major, runnable by hand.
 oasdiff: $(OASDIFF) ## Diff the live schema against the committed one, as the release does
 	@$(MAKE) --no-print-directory fetch OUT=/tmp/openapi.json.new
 	@python3 scripts/check_schema.py /tmp/openapi.json.new

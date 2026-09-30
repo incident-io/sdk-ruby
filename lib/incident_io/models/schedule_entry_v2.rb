@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module IncidentIo
-  # A single shift on a schedule, representing who is on-call between a start and end time. When present, `rotation_id` and `layer_id` tell you which rotation and which layer within that rotation the entry belongs to. A schedule may have multiple rotations (for example, a primary and a secondary rotation) and each rotation can be made up of several layers — entries are returned for every rotation and layer on the schedule.  Entries come from two places: they are either generated from a schedule's rotation configuration (the regular pattern of who is on-call) or created by an override (a one-off change that replaces the normal rotation for a period of time). When you call the List schedule entries endpoint we return both kinds separately, along with the merged `final` schedule that reflects what will actually happen.  `entry_id` is only populated for entries that correspond to a stored record. Scheduled entries are projections computed from the rotation rules on the fly and don't have a persisted ID, so `entry_id` will be absent for those. Use `fingerprint` if you need a stable identifier to deduplicate or diff a shift across requests.
+  # A single shift on a schedule, representing who is on-call between a start and end time. When present, `rotation_id` tells you which rotation the entry belongs to. A schedule may have multiple rotations (for example, a primary and a secondary rotation) and each rotation can be made up of several layers — entries are returned for every rotation and layer on the schedule.  Entries come from two places: they are either generated from a schedule's rotation configuration (the regular pattern of who is on-call) or created by an override (a one-off change that replaces the normal rotation for a period of time). When you call the List schedule entries endpoint we return both kinds separately, along with the merged `final` schedule that reflects what will actually happen.  `entry_id` is only populated for entries that correspond to a stored record. Scheduled entries are projections computed from the rotation rules on the fly and don't have a persisted ID, so `entry_id` will be absent for those. Use `fingerprint` if you need a stable identifier to deduplicate or diff a shift across requests.
   class ScheduleEntryV2 < ApiModelBase
     attr_accessor :end_at
 
@@ -23,9 +23,6 @@ module IncidentIo
 
     # A unique identifier for this entry, used to determine a unique shift
     attr_accessor :fingerprint
-
-    # If present, the layer this entry applies to on the rotation
-    attr_accessor :layer_id
 
     # If present, the rotation this entry applies to on the schedule
     attr_accessor :rotation_id
@@ -40,7 +37,6 @@ module IncidentIo
         :'end_at' => :'end_at',
         :'entry_id' => :'entry_id',
         :'fingerprint' => :'fingerprint',
-        :'layer_id' => :'layer_id',
         :'rotation_id' => :'rotation_id',
         :'start_at' => :'start_at',
         :'user' => :'user'
@@ -63,7 +59,6 @@ module IncidentIo
         :'end_at' => :'Time',
         :'entry_id' => :'String',
         :'fingerprint' => :'String',
-        :'layer_id' => :'String',
         :'rotation_id' => :'String',
         :'start_at' => :'Time',
         :'user' => :'UserV2'
@@ -104,10 +99,6 @@ module IncidentIo
 
       if attributes.key?(:'fingerprint')
         self.fingerprint = attributes[:'fingerprint']
-      end
-
-      if attributes.key?(:'layer_id')
-        self.layer_id = attributes[:'layer_id']
       end
 
       if attributes.key?(:'rotation_id')
@@ -178,7 +169,6 @@ module IncidentIo
           end_at == o.end_at &&
           entry_id == o.entry_id &&
           fingerprint == o.fingerprint &&
-          layer_id == o.layer_id &&
           rotation_id == o.rotation_id &&
           start_at == o.start_at &&
           user == o.user
@@ -193,7 +183,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [end_at, entry_id, fingerprint, layer_id, rotation_id, start_at, user].hash
+      [end_at, entry_id, fingerprint, rotation_id, start_at, user].hash
     end
 
     # Builds the object from hash

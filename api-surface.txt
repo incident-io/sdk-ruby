@@ -2168,6 +2168,13 @@ model IncidentIo::AuditLogsOnCallNotificationPauseDeletedV2 metadata
 model IncidentIo::AuditLogsOnCallNotificationPauseDeletedV2 occurred_at
 model IncidentIo::AuditLogsOnCallNotificationPauseDeletedV2 targets
 model IncidentIo::AuditLogsOnCallNotificationPauseDeletedV2 version
+model IncidentIo::AuditLogsOnCallNotificationPauseResumedV1 action
+model IncidentIo::AuditLogsOnCallNotificationPauseResumedV1 actor
+model IncidentIo::AuditLogsOnCallNotificationPauseResumedV1 context
+model IncidentIo::AuditLogsOnCallNotificationPauseResumedV1 metadata
+model IncidentIo::AuditLogsOnCallNotificationPauseResumedV1 occurred_at
+model IncidentIo::AuditLogsOnCallNotificationPauseResumedV1 targets
+model IncidentIo::AuditLogsOnCallNotificationPauseResumedV1 version
 model IncidentIo::AuditLogsOnCallNotificationPauseUpdatedV1 action
 model IncidentIo::AuditLogsOnCallNotificationPauseUpdatedV1 actor
 model IncidentIo::AuditLogsOnCallNotificationPauseUpdatedV1 context
@@ -4637,7 +4644,6 @@ model IncidentIo::ScheduleEntriesListPayloadV2 scheduled
 model IncidentIo::ScheduleEntryV2 end_at
 model IncidentIo::ScheduleEntryV2 entry_id
 model IncidentIo::ScheduleEntryV2 fingerprint
-model IncidentIo::ScheduleEntryV2 layer_id
 model IncidentIo::ScheduleEntryV2 rotation_id
 model IncidentIo::ScheduleEntryV2 start_at
 model IncidentIo::ScheduleEntryV2 user

@@ -76,14 +76,14 @@ jobs:
       # Nothing below needs Ruby until the schema has actually changed, and
       # most runs stop above.
       - if: steps.changed.outputs.changed == 'true'
-        uses: ruby/setup-ruby@762794c140bbeda0f1224786aa33b4b46783a6c1 # v1.326.0
+        uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
         with:
           ruby-version: ${{ env.RELEASE_RUBY }}
           bundler-cache: true
       - if: steps.changed.outputs.changed == 'true'
         # ~30MB from Maven Central, fetched by the Makefile into /tmp. Keyed on
         # the Makefile because that is where OPENAPI_GENERATOR_VERSION lives.
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: /tmp/openapi-generator-cli-*.jar
           key: openapi-generator-${{ hashFiles('Makefile') }}
@@ -266,7 +266,7 @@ jobs:
       # The declared floor is a promise nothing else here checks, since the
       # release builds on RELEASE_RUBY, and it has to fail before publishing.
       - if: steps.changed.outputs.changed == 'true'
-        uses: ruby/setup-ruby@762794c140bbeda0f1224786aa33b4b46783a6c1 # v1.326.0
+        uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
         with:
           ruby-version: "3.0"
           # make package needs no Bundler, and the Gemfile.lock the release

@@ -50,6 +50,8 @@ module IncidentIo
 
     attr_accessor :schedule
 
+    attr_accessor :shift_conflict
+
     # Where this finding is in its lifecycle  Known values: `pending`, `active`, `resolved`, `cancelled`, `dismissed`
     attr_accessor :state
 
@@ -74,6 +76,7 @@ module IncidentIo
         :'post_mortem' => :'post_mortem',
         :'responsible_users' => :'responsible_users',
         :'schedule' => :'schedule',
+        :'shift_conflict' => :'shift_conflict',
         :'state' => :'state',
         :'updated_at' => :'updated_at',
         :'vacation_conflict' => :'vacation_conflict'
@@ -107,6 +110,7 @@ module IncidentIo
         :'post_mortem' => :'PolicyFindingPostMortemV2',
         :'responsible_users' => :'Array<UserV2>',
         :'schedule' => :'PolicyFindingScheduleV2',
+        :'shift_conflict' => :'PolicyFindingShiftConflictV2',
         :'state' => :'String',
         :'updated_at' => :'Time',
         :'vacation_conflict' => :'PolicyFindingVacationConflictV2'
@@ -203,6 +207,10 @@ module IncidentIo
 
       if attributes.key?(:'schedule')
         self.schedule = attributes[:'schedule']
+      end
+
+      if attributes.key?(:'shift_conflict')
+        self.shift_conflict = attributes[:'shift_conflict']
       end
 
       if attributes.key?(:'state')
@@ -376,6 +384,7 @@ module IncidentIo
           post_mortem == o.post_mortem &&
           responsible_users == o.responsible_users &&
           schedule == o.schedule &&
+          shift_conflict == o.shift_conflict &&
           state == o.state &&
           updated_at == o.updated_at &&
           vacation_conflict == o.vacation_conflict
@@ -390,7 +399,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, days, debrief, dismissal, due_at, follow_up, id, last_checked_at, on_call_readiness, policy_id, policy_type, post_mortem, responsible_users, schedule, state, updated_at, vacation_conflict].hash
+      [created_at, days, debrief, dismissal, due_at, follow_up, id, last_checked_at, on_call_readiness, policy_id, policy_type, post_mortem, responsible_users, schedule, shift_conflict, state, updated_at, vacation_conflict].hash
     end
 
     # Builds the object from hash

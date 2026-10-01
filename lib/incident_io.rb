@@ -956,6 +956,8 @@ IncidentIo.autoload :PolicyFindingPostMortemV2, 'incident_io/models/policy_findi
 IncidentIo.autoload :PolicyFindingReadinessRuleV2, 'incident_io/models/policy_finding_readiness_rule_v2'
 IncidentIo.autoload :PolicyFindingScheduleImpactedUserV2, 'incident_io/models/policy_finding_schedule_impacted_user_v2'
 IncidentIo.autoload :PolicyFindingScheduleV2, 'incident_io/models/policy_finding_schedule_v2'
+IncidentIo.autoload :PolicyFindingShiftConflictShiftV2, 'incident_io/models/policy_finding_shift_conflict_shift_v2'
+IncidentIo.autoload :PolicyFindingShiftConflictV2, 'incident_io/models/policy_finding_shift_conflict_v2'
 IncidentIo.autoload :PolicyFindingV2, 'incident_io/models/policy_finding_v2'
 IncidentIo.autoload :PolicyFindingVacationConflictV2, 'incident_io/models/policy_finding_vacation_conflict_v2'
 IncidentIo.autoload :PolicyFindingsDismissPayloadV2, 'incident_io/models/policy_findings_dismiss_payload_v2'

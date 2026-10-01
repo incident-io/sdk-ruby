@@ -15,6 +15,9 @@ require 'time'
 
 module IncidentIo
   class GroupingSettingsV3 < ApiModelBase
+    # Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are grouped by key alone unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+    attr_accessor :ai_enabled
+
     # Whether grouping is enabled
     attr_accessor :enabled
 
@@ -30,6 +33,7 @@ module IncidentIo
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ai_enabled' => :'ai_enabled',
         :'enabled' => :'enabled',
         :'grouping_keys' => :'grouping_keys',
         :'window_seconds' => :'window_seconds',
@@ -50,6 +54,7 @@ module IncidentIo
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ai_enabled' => :'Boolean',
         :'enabled' => :'Boolean',
         :'grouping_keys' => :'Array<GroupingKeyV3>',
         :'window_seconds' => :'Integer',
@@ -78,6 +83,10 @@ module IncidentIo
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'ai_enabled')
+        self.ai_enabled = attributes[:'ai_enabled']
+      end
 
       if attributes.key?(:'enabled')
         self.enabled = attributes[:'enabled']
@@ -163,6 +172,7 @@ module IncidentIo
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ai_enabled == o.ai_enabled &&
           enabled == o.enabled &&
           grouping_keys == o.grouping_keys &&
           window_seconds == o.window_seconds &&
@@ -178,7 +188,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [enabled, grouping_keys, window_seconds, window_type].hash
+      [ai_enabled, enabled, grouping_keys, window_seconds, window_type].hash
     end
 
     # Builds the object from hash

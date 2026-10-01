@@ -3817,6 +3817,7 @@ model IncidentIo::FollowUpsUpdateResultV2 follow_up
 model IncidentIo::FollowUpsUpdateResultV3 follow_up
 model IncidentIo::GroupingKeyV2 reference
 model IncidentIo::GroupingKeyV3 reference
+model IncidentIo::GroupingSettingsV3 ai_enabled
 model IncidentIo::GroupingSettingsV3 enabled
 model IncidentIo::GroupingSettingsV3 grouping_keys
 model IncidentIo::GroupingSettingsV3 window_seconds

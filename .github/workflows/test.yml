@@ -17,7 +17,7 @@ jobs:
         ruby: ["3.0", "3.1", "3.2", "3.3", "3.4", "4.0"]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: ruby/setup-ruby@762794c140bbeda0f1224786aa33b4b46783a6c1 # v1.326.0
+      - uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
@@ -46,7 +46,7 @@ jobs:
       # this every pull request pulls it twice, and a Maven Central blip
       # reddens unrelated PRs. Keyed on the Makefile because that is where
       # OPENAPI_GENERATOR_VERSION lives.
-      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: /tmp/openapi-generator-cli-*.jar
           key: openapi-generator-${{ hashFiles('Makefile') }}

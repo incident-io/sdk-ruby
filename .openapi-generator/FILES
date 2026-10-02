@@ -810,6 +810,7 @@ lib/incident_io/models/incident_attachments_create_payload_v1.rb
 lib/incident_io/models/incident_attachments_create_payload_v1_resource.rb
 lib/incident_io/models/incident_attachments_create_result_v1.rb
 lib/incident_io/models/incident_attachments_list_result_v1.rb
+lib/incident_io/models/incident_debrief_v2.rb
 lib/incident_io/models/incident_duration_metric_v2.rb
 lib/incident_io/models/incident_duration_metric_with_value_v2.rb
 lib/incident_io/models/incident_edit_payload_v2.rb

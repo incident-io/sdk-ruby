@@ -26,6 +26,9 @@ module IncidentIo
     # Custom field entries for this incident
     attr_accessor :custom_field_entries
 
+    # Debriefs scheduled for this incident, ordered by start time. Excludes cancelled calendar events.
+    attr_accessor :debriefs
+
     # Incident duration metrics and their measurements for this incident
     attr_accessor :duration_metrics
 
@@ -122,6 +125,7 @@ module IncidentIo
         :'created_at' => :'created_at',
         :'creator' => :'creator',
         :'custom_field_entries' => :'custom_field_entries',
+        :'debriefs' => :'debriefs',
         :'duration_metrics' => :'duration_metrics',
         :'external_issue_reference' => :'external_issue_reference',
         :'has_debrief' => :'has_debrief',
@@ -173,6 +177,7 @@ module IncidentIo
         :'created_at' => :'Time',
         :'creator' => :'ActorV2',
         :'custom_field_entries' => :'Array<CustomFieldEntryV2>',
+        :'debriefs' => :'Array<IncidentDebriefV2>',
         :'duration_metrics' => :'Array<IncidentDurationMetricWithValueV2>',
         :'external_issue_reference' => :'ExternalIssueReferenceV2',
         :'has_debrief' => :'Boolean',
@@ -251,6 +256,12 @@ module IncidentIo
         end
       else
         self.custom_field_entries = nil
+      end
+
+      if attributes.key?(:'debriefs')
+        if (value = attributes[:'debriefs']).is_a?(Array)
+          self.debriefs = value
+        end
       end
 
       if attributes.key?(:'duration_metrics')
@@ -663,6 +674,7 @@ module IncidentIo
           created_at == o.created_at &&
           creator == o.creator &&
           custom_field_entries == o.custom_field_entries &&
+          debriefs == o.debriefs &&
           duration_metrics == o.duration_metrics &&
           external_issue_reference == o.external_issue_reference &&
           has_debrief == o.has_debrief &&
@@ -705,7 +717,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [call_url, created_at, creator, custom_field_entries, duration_metrics, external_issue_reference, has_debrief, id, incident_role_assignments, incident_status, incident_timestamp_values, incident_type, last_activity_at, mode, most_recent_update_message, ms_teams_channel_url, name, permalink, postmortem_document_ids, postmortem_document_url, reference, related_incidents, severity, slack_channel_id, slack_channel_name, slack_channel_url, slack_team_id, summary, team_ids, updated_at, visibility, workload_minutes_late, workload_minutes_sleeping, workload_minutes_total, workload_minutes_working].hash
+      [call_url, created_at, creator, custom_field_entries, debriefs, duration_metrics, external_issue_reference, has_debrief, id, incident_role_assignments, incident_status, incident_timestamp_values, incident_type, last_activity_at, mode, most_recent_update_message, ms_teams_channel_url, name, permalink, postmortem_document_ids, postmortem_document_url, reference, related_incidents, severity, slack_channel_id, slack_channel_name, slack_channel_url, slack_team_id, summary, team_ids, updated_at, visibility, workload_minutes_late, workload_minutes_sleeping, workload_minutes_total, workload_minutes_working].hash
     end
 
     # Builds the object from hash

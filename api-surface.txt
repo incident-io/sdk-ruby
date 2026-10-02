@@ -3887,6 +3887,9 @@ model IncidentIo::IncidentAttachmentsCreatePayloadV1Resource title
 model IncidentIo::IncidentAttachmentsCreatePayloadV1Resource url
 model IncidentIo::IncidentAttachmentsCreateResultV1 incident_attachment
 model IncidentIo::IncidentAttachmentsListResultV1 incident_attachments
+model IncidentIo::IncidentDebriefV2 end_at
+model IncidentIo::IncidentDebriefV2 id
+model IncidentIo::IncidentDebriefV2 start_at
 model IncidentIo::IncidentDurationMetricV2 id
 model IncidentIo::IncidentDurationMetricV2 name
 model IncidentIo::IncidentDurationMetricWithValueV2 duration_metric
@@ -4172,6 +4175,7 @@ model IncidentIo::IncidentV2 call_url
 model IncidentIo::IncidentV2 created_at
 model IncidentIo::IncidentV2 creator
 model IncidentIo::IncidentV2 custom_field_entries
+model IncidentIo::IncidentV2 debriefs
 model IncidentIo::IncidentV2 duration_metrics
 model IncidentIo::IncidentV2 external_issue_reference
 model IncidentIo::IncidentV2 has_debrief
@@ -5144,6 +5148,7 @@ model IncidentIo::WebhookIncidentV2 call_url
 model IncidentIo::WebhookIncidentV2 created_at
 model IncidentIo::WebhookIncidentV2 creator
 model IncidentIo::WebhookIncidentV2 custom_field_entries
+model IncidentIo::WebhookIncidentV2 debriefs
 model IncidentIo::WebhookIncidentV2 duration_metrics
 model IncidentIo::WebhookIncidentV2 external_issue_reference
 model IncidentIo::WebhookIncidentV2 has_debrief

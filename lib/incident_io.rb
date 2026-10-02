@@ -772,6 +772,7 @@ IncidentIo.autoload :IncidentAttachmentsCreatePayloadV1, 'incident_io/models/inc
 IncidentIo.autoload :IncidentAttachmentsCreatePayloadV1Resource, 'incident_io/models/incident_attachments_create_payload_v1_resource'
 IncidentIo.autoload :IncidentAttachmentsCreateResultV1, 'incident_io/models/incident_attachments_create_result_v1'
 IncidentIo.autoload :IncidentAttachmentsListResultV1, 'incident_io/models/incident_attachments_list_result_v1'
+IncidentIo.autoload :IncidentDebriefV2, 'incident_io/models/incident_debrief_v2'
 IncidentIo.autoload :IncidentDurationMetricV2, 'incident_io/models/incident_duration_metric_v2'
 IncidentIo.autoload :IncidentDurationMetricWithValueV2, 'incident_io/models/incident_duration_metric_with_value_v2'
 IncidentIo.autoload :IncidentEditPayloadV2, 'incident_io/models/incident_edit_payload_v2'

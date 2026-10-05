@@ -1930,6 +1930,12 @@ model IncidentIo::AuditLogsIncidentRoleUpdatedV1 context
 model IncidentIo::AuditLogsIncidentRoleUpdatedV1 occurred_at
 model IncidentIo::AuditLogsIncidentRoleUpdatedV1 targets
 model IncidentIo::AuditLogsIncidentRoleUpdatedV1 version
+model IncidentIo::AuditLogsIncidentScrubbedV1 action
+model IncidentIo::AuditLogsIncidentScrubbedV1 actor
+model IncidentIo::AuditLogsIncidentScrubbedV1 context
+model IncidentIo::AuditLogsIncidentScrubbedV1 occurred_at
+model IncidentIo::AuditLogsIncidentScrubbedV1 targets
+model IncidentIo::AuditLogsIncidentScrubbedV1 version
 model IncidentIo::AuditLogsIncidentStatusCreatedV1 action
 model IncidentIo::AuditLogsIncidentStatusCreatedV1 actor
 model IncidentIo::AuditLogsIncidentStatusCreatedV1 context

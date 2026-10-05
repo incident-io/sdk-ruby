@@ -378,6 +378,7 @@ lib/incident_io/models/audit_logs_incident_duration_metric_updated_v1.rb
 lib/incident_io/models/audit_logs_incident_role_created_v1.rb
 lib/incident_io/models/audit_logs_incident_role_deleted_v1.rb
 lib/incident_io/models/audit_logs_incident_role_updated_v1.rb
+lib/incident_io/models/audit_logs_incident_scrubbed_v1.rb
 lib/incident_io/models/audit_logs_incident_status_created_v1.rb
 lib/incident_io/models/audit_logs_incident_status_deleted_v1.rb
 lib/incident_io/models/audit_logs_incident_status_updated_v1.rb

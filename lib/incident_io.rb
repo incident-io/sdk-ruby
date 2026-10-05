@@ -335,6 +335,7 @@ IncidentIo.autoload :AuditLogsIncidentDurationMetricUpdatedV1, 'incident_io/mode
 IncidentIo.autoload :AuditLogsIncidentRoleCreatedV1, 'incident_io/models/audit_logs_incident_role_created_v1'
 IncidentIo.autoload :AuditLogsIncidentRoleDeletedV1, 'incident_io/models/audit_logs_incident_role_deleted_v1'
 IncidentIo.autoload :AuditLogsIncidentRoleUpdatedV1, 'incident_io/models/audit_logs_incident_role_updated_v1'
+IncidentIo.autoload :AuditLogsIncidentScrubbedV1, 'incident_io/models/audit_logs_incident_scrubbed_v1'
 IncidentIo.autoload :AuditLogsIncidentStatusCreatedV1, 'incident_io/models/audit_logs_incident_status_created_v1'
 IncidentIo.autoload :AuditLogsIncidentStatusDeletedV1, 'incident_io/models/audit_logs_incident_status_deleted_v1'
 IncidentIo.autoload :AuditLogsIncidentStatusUpdatedV1, 'incident_io/models/audit_logs_incident_status_updated_v1'

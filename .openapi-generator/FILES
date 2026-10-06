@@ -27,6 +27,7 @@ lib/incident_io/api/follow_ups_v3_api.rb
 lib/incident_io/api/heartbeat_v2_api.rb
 lib/incident_io/api/incident_activity_log_entries_v2_api.rb
 lib/incident_io/api/incident_attachments_v1_api.rb
+lib/incident_io/api/incident_forms_v3_api.rb
 lib/incident_io/api/incident_memberships_v1_api.rb
 lib/incident_io/api/incident_participant_workloads_v2_api.rb
 lib/incident_io/api/incident_participants_v2_api.rb
@@ -816,6 +817,16 @@ lib/incident_io/models/incident_debrief_v2.rb
 lib/incident_io/models/incident_duration_metric_v2.rb
 lib/incident_io/models/incident_duration_metric_with_value_v2.rb
 lib/incident_io/models/incident_edit_payload_v2.rb
+lib/incident_io/models/incident_form_lifecycle_element_config_v3.rb
+lib/incident_io/models/incident_form_lifecycle_element_payload_v3.rb
+lib/incident_io/models/incident_form_lifecycle_element_v3.rb
+lib/incident_io/models/incident_form_v3.rb
+lib/incident_io/models/incident_forms_create_payload_v3.rb
+lib/incident_io/models/incident_forms_create_result_v3.rb
+lib/incident_io/models/incident_forms_list_result_v3.rb
+lib/incident_io/models/incident_forms_show_result_v3.rb
+lib/incident_io/models/incident_forms_update_payload_v3.rb
+lib/incident_io/models/incident_forms_update_result_v3.rb
 lib/incident_io/models/incident_membership_v1.rb
 lib/incident_io/models/incident_memberships_create_payload_v1.rb
 lib/incident_io/models/incident_memberships_create_result_v1.rb

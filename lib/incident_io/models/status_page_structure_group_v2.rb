@@ -18,6 +18,15 @@ module IncidentIo
     # Array of components belonging to this group
     attr_accessor :components
 
+    # A description shown under the group's name
+    attr_accessor :description
+
+    # Whether the page shows uptime aggregated across the group's components
+    attr_accessor :display_aggregated_uptime
+
+    # Whether the group is hidden from the page
+    attr_accessor :hidden
+
     # Unique ID of this component group
     attr_accessor :id
 
@@ -28,6 +37,9 @@ module IncidentIo
     def self.attribute_map
       {
         :'components' => :'components',
+        :'description' => :'description',
+        :'display_aggregated_uptime' => :'display_aggregated_uptime',
+        :'hidden' => :'hidden',
         :'id' => :'id',
         :'name' => :'name'
       }
@@ -47,6 +59,9 @@ module IncidentIo
     def self.openapi_types
       {
         :'components' => :'Array<StatusPageStructureComponentV2>',
+        :'description' => :'String',
+        :'display_aggregated_uptime' => :'Boolean',
+        :'hidden' => :'Boolean',
         :'id' => :'String',
         :'name' => :'String'
       }
@@ -82,6 +97,22 @@ module IncidentIo
         self.components = nil
       end
 
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'display_aggregated_uptime')
+        self.display_aggregated_uptime = attributes[:'display_aggregated_uptime']
+      else
+        self.display_aggregated_uptime = nil
+      end
+
+      if attributes.key?(:'hidden')
+        self.hidden = attributes[:'hidden']
+      else
+        self.hidden = nil
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       else
@@ -104,6 +135,14 @@ module IncidentIo
         invalid_properties.push('invalid value for "components", components cannot be nil.')
       end
 
+      if @display_aggregated_uptime.nil?
+        invalid_properties.push('invalid value for "display_aggregated_uptime", display_aggregated_uptime cannot be nil.')
+      end
+
+      if @hidden.nil?
+        invalid_properties.push('invalid value for "hidden", hidden cannot be nil.')
+      end
+
       if @id.nil?
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
@@ -120,6 +159,8 @@ module IncidentIo
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @components.nil?
+      return false if @display_aggregated_uptime.nil?
+      return false if @hidden.nil?
       return false if @id.nil?
       return false if @name.nil?
       true
@@ -133,6 +174,26 @@ module IncidentIo
       end
 
       @components = components
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] display_aggregated_uptime Value to be assigned
+    def display_aggregated_uptime=(display_aggregated_uptime)
+      if display_aggregated_uptime.nil?
+        fail ArgumentError, 'display_aggregated_uptime cannot be nil'
+      end
+
+      @display_aggregated_uptime = display_aggregated_uptime
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] hidden Value to be assigned
+    def hidden=(hidden)
+      if hidden.nil?
+        fail ArgumentError, 'hidden cannot be nil'
+      end
+
+      @hidden = hidden
     end
 
     # Custom attribute writer method with validation
@@ -161,6 +222,9 @@ module IncidentIo
       return true if self.equal?(o)
       self.class == o.class &&
           components == o.components &&
+          description == o.description &&
+          display_aggregated_uptime == o.display_aggregated_uptime &&
+          hidden == o.hidden &&
           id == o.id &&
           name == o.name
     end
@@ -174,7 +238,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [components, id, name].hash
+      [components, description, display_aggregated_uptime, hidden, id, name].hash
     end
 
     # Builds the object from hash

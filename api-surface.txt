@@ -4964,8 +4964,13 @@ model IncidentIo::StatusPageRetrospectiveIncidentUpdateV2 incident_status
 model IncidentIo::StatusPageRetrospectiveIncidentUpdateV2 message
 model IncidentIo::StatusPageRetrospectiveIncidentUpdateV2 published_at
 model IncidentIo::StatusPageStructureComponentV2 component_id
+model IncidentIo::StatusPageStructureComponentV2 display_uptime
+model IncidentIo::StatusPageStructureComponentV2 hidden
 model IncidentIo::StatusPageStructureComponentV2 name
 model IncidentIo::StatusPageStructureGroupV2 components
+model IncidentIo::StatusPageStructureGroupV2 description
+model IncidentIo::StatusPageStructureGroupV2 display_aggregated_uptime
+model IncidentIo::StatusPageStructureGroupV2 hidden
 model IncidentIo::StatusPageStructureGroupV2 id
 model IncidentIo::StatusPageStructureGroupV2 name
 model IncidentIo::StatusPageStructureItemV2 component
@@ -5029,6 +5034,8 @@ model IncidentIo::StatusPagesShowStatusPageIncidentResultV2 status_page_incident
 model IncidentIo::StatusPagesShowStatusPageMaintenanceResultV2 status_page_maintenance
 model IncidentIo::StatusPagesShowStatusPageResultV2 status_page
 model IncidentIo::StatusPagesShowStatusPageStructureResultV2 current_structure
+model IncidentIo::StatusPagesShowStatusPageStructureResultV2 display_uptime_mode
+model IncidentIo::StatusPagesShowStatusPageStructureResultV2 management_meta
 model IncidentIo::StatusPagesUpdateStatusPageIncidentPayloadV2 name
 model IncidentIo::StatusPagesUpdateStatusPageIncidentResultV2 status_page_incident
 model IncidentIo::StatusPagesUpdateStatusPageMaintenancePayloadV2 end_at

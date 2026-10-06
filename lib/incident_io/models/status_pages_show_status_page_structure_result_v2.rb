@@ -17,10 +17,17 @@ module IncidentIo
   class StatusPagesShowStatusPageStructureResultV2 < ApiModelBase
     attr_accessor :current_structure
 
+    # How the page shows uptime against its components  Known values: `chart_and_percentage`, `chart_only`, `nothing`
+    attr_accessor :display_uptime_mode
+
+    attr_accessor :management_meta
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'current_structure' => :'current_structure'
+        :'current_structure' => :'current_structure',
+        :'display_uptime_mode' => :'display_uptime_mode',
+        :'management_meta' => :'management_meta'
       }
     end
 
@@ -37,7 +44,9 @@ module IncidentIo
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'current_structure' => :'StatusPageStructureV2'
+        :'current_structure' => :'StatusPageStructureV2',
+        :'display_uptime_mode' => :'String',
+        :'management_meta' => :'ManagementMetaV2'
       }
     end
 
@@ -68,6 +77,18 @@ module IncidentIo
       else
         self.current_structure = nil
       end
+
+      if attributes.key?(:'display_uptime_mode')
+        self.display_uptime_mode = attributes[:'display_uptime_mode']
+      else
+        self.display_uptime_mode = nil
+      end
+
+      if attributes.key?(:'management_meta')
+        self.management_meta = attributes[:'management_meta']
+      else
+        self.management_meta = nil
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -79,6 +100,14 @@ module IncidentIo
         invalid_properties.push('invalid value for "current_structure", current_structure cannot be nil.')
       end
 
+      if @display_uptime_mode.nil?
+        invalid_properties.push('invalid value for "display_uptime_mode", display_uptime_mode cannot be nil.')
+      end
+
+      if @management_meta.nil?
+        invalid_properties.push('invalid value for "management_meta", management_meta cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -87,6 +116,8 @@ module IncidentIo
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @current_structure.nil?
+      return false if @display_uptime_mode.nil?
+      return false if @management_meta.nil?
       true
     end
 
@@ -100,12 +131,34 @@ module IncidentIo
       @current_structure = current_structure
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] display_uptime_mode Value to be assigned
+    def display_uptime_mode=(display_uptime_mode)
+      if display_uptime_mode.nil?
+        fail ArgumentError, 'display_uptime_mode cannot be nil'
+      end
+
+      @display_uptime_mode = display_uptime_mode
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] management_meta Value to be assigned
+    def management_meta=(management_meta)
+      if management_meta.nil?
+        fail ArgumentError, 'management_meta cannot be nil'
+      end
+
+      @management_meta = management_meta
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          current_structure == o.current_structure
+          current_structure == o.current_structure &&
+          display_uptime_mode == o.display_uptime_mode &&
+          management_meta == o.management_meta
     end
 
     # @see the `==` method
@@ -117,7 +170,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [current_structure].hash
+      [current_structure, display_uptime_mode, management_meta].hash
     end
 
     # Builds the object from hash

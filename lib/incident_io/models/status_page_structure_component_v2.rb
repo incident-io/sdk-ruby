@@ -18,6 +18,12 @@ module IncidentIo
     # The ID of the affected component. This may be found by calling the ShowStatusPageStructure endpoint.
     attr_accessor :component_id
 
+    # Whether the page shows this component's uptime
+    attr_accessor :display_uptime
+
+    # Whether the component is hidden from the page
+    attr_accessor :hidden
+
     # The name of this component
     attr_accessor :name
 
@@ -25,6 +31,8 @@ module IncidentIo
     def self.attribute_map
       {
         :'component_id' => :'component_id',
+        :'display_uptime' => :'display_uptime',
+        :'hidden' => :'hidden',
         :'name' => :'name'
       }
     end
@@ -43,6 +51,8 @@ module IncidentIo
     def self.openapi_types
       {
         :'component_id' => :'String',
+        :'display_uptime' => :'Boolean',
+        :'hidden' => :'Boolean',
         :'name' => :'String'
       }
     end
@@ -75,6 +85,18 @@ module IncidentIo
         self.component_id = nil
       end
 
+      if attributes.key?(:'display_uptime')
+        self.display_uptime = attributes[:'display_uptime']
+      else
+        self.display_uptime = nil
+      end
+
+      if attributes.key?(:'hidden')
+        self.hidden = attributes[:'hidden']
+      else
+        self.hidden = nil
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       else
@@ -91,6 +113,14 @@ module IncidentIo
         invalid_properties.push('invalid value for "component_id", component_id cannot be nil.')
       end
 
+      if @display_uptime.nil?
+        invalid_properties.push('invalid value for "display_uptime", display_uptime cannot be nil.')
+      end
+
+      if @hidden.nil?
+        invalid_properties.push('invalid value for "hidden", hidden cannot be nil.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -103,6 +133,8 @@ module IncidentIo
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @component_id.nil?
+      return false if @display_uptime.nil?
+      return false if @hidden.nil?
       return false if @name.nil?
       true
     end
@@ -115,6 +147,26 @@ module IncidentIo
       end
 
       @component_id = component_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] display_uptime Value to be assigned
+    def display_uptime=(display_uptime)
+      if display_uptime.nil?
+        fail ArgumentError, 'display_uptime cannot be nil'
+      end
+
+      @display_uptime = display_uptime
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] hidden Value to be assigned
+    def hidden=(hidden)
+      if hidden.nil?
+        fail ArgumentError, 'hidden cannot be nil'
+      end
+
+      @hidden = hidden
     end
 
     # Custom attribute writer method with validation
@@ -133,6 +185,8 @@ module IncidentIo
       return true if self.equal?(o)
       self.class == o.class &&
           component_id == o.component_id &&
+          display_uptime == o.display_uptime &&
+          hidden == o.hidden &&
           name == o.name
     end
 
@@ -145,7 +199,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [component_id, name].hash
+      [component_id, display_uptime, hidden, name].hash
     end
 
     # Builds the object from hash

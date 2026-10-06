@@ -952,7 +952,7 @@ module IncidentIo
     end
 
     # ShowStatusPageStructure Status Pages V2
-    # Show the structure of a status page.  This endpoint requires a valid API key but no specific scopes. Returns the components and component groups configured on a status page. Use this to find component IDs when specifying affected components for incidents or maintenance windows.
+    # Show the structure of a status page.  This endpoint requires a valid API key but no specific scopes. Returns the components and component groups configured on a status page, with their display settings, and how the page shows uptime. Use this to find component IDs when specifying affected components for incidents or maintenance windows.
     # @param status_page_id [String] ID of the status page
     # @param [Hash] opts the optional parameters
     # @return [StatusPagesShowStatusPageStructureResultV2]
@@ -962,7 +962,7 @@ module IncidentIo
     end
 
     # ShowStatusPageStructure Status Pages V2
-    # Show the structure of a status page.  This endpoint requires a valid API key but no specific scopes. Returns the components and component groups configured on a status page. Use this to find component IDs when specifying affected components for incidents or maintenance windows.
+    # Show the structure of a status page.  This endpoint requires a valid API key but no specific scopes. Returns the components and component groups configured on a status page, with their display settings, and how the page shows uptime. Use this to find component IDs when specifying affected components for incidents or maintenance windows.
     # @param status_page_id [String] ID of the status page
     # @param [Hash] opts the optional parameters
     # @return [Array<(StatusPagesShowStatusPageStructureResultV2, Integer, Hash)>] StatusPagesShowStatusPageStructureResultV2 data, response status code and response headers

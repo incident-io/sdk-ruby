@@ -53,6 +53,7 @@ lib/incident_io/api/schedule_sync_targets_v2_api.rb
 lib/incident_io/api/schedules_v2_api.rb
 lib/incident_io/api/secrets_v2_api.rb
 lib/incident_io/api/severities_v1_api.rb
+lib/incident_io/api/status_page_components_v2_api.rb
 lib/incident_io/api/status_pages_v1_api.rb
 lib/incident_io/api/status_pages_v2_api.rb
 lib/incident_io/api/teams_v3_api.rb
@@ -1113,6 +1114,13 @@ lib/incident_io/models/severities_update_result_v1.rb
 lib/incident_io/models/severity_v1.rb
 lib/incident_io/models/severity_v2.rb
 lib/incident_io/models/status_page_component_availability_v2.rb
+lib/incident_io/models/status_page_component_v2.rb
+lib/incident_io/models/status_page_components_create_payload_v2.rb
+lib/incident_io/models/status_page_components_create_result_v2.rb
+lib/incident_io/models/status_page_components_list_result_v2.rb
+lib/incident_io/models/status_page_components_show_result_v2.rb
+lib/incident_io/models/status_page_components_update_payload_v2.rb
+lib/incident_io/models/status_page_components_update_result_v2.rb
 lib/incident_io/models/status_page_incident_affected_component_v2.rb
 lib/incident_io/models/status_page_incident_component_impact_v2.rb
 lib/incident_io/models/status_page_incident_update_v2.rb

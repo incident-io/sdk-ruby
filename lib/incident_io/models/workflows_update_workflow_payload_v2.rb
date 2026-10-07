@@ -18,6 +18,9 @@ module IncidentIo
     # Annotations that track metadata about this resource
     attr_accessor :annotations
 
+    # Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `run_automatically` on create. If omitted on update, the workflow keeps its current mode.  Known values: `run_automatically`, `confirm_before_running`
+    attr_accessor :auto_run_mode
+
     # Conditions that apply to the workflow trigger
     attr_accessor :condition_groups
 
@@ -32,7 +35,7 @@ module IncidentIo
     # Folder to display the workflow in
     attr_accessor :folder
 
-    # User-configured form fields available in the workflow scope (manual triggers only)
+    # User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `auto_run_mode` of `confirm_before_running`.
     attr_accessor :form_fields
 
     # Whether to include private escalations
@@ -75,6 +78,7 @@ module IncidentIo
     def self.attribute_map
       {
         :'annotations' => :'annotations',
+        :'auto_run_mode' => :'auto_run_mode',
         :'condition_groups' => :'condition_groups',
         :'continue_on_step_error' => :'continue_on_step_error',
         :'delay' => :'delay',
@@ -110,6 +114,7 @@ module IncidentIo
     def self.openapi_types
       {
         :'annotations' => :'Hash<String, String>',
+        :'auto_run_mode' => :'String',
         :'condition_groups' => :'Array<ConditionGroupPayloadV2>',
         :'continue_on_step_error' => :'Boolean',
         :'delay' => :'WorkflowDelayV2',
@@ -157,6 +162,10 @@ module IncidentIo
         if (value = attributes[:'annotations']).is_a?(Hash)
           self.annotations = value
         end
+      end
+
+      if attributes.key?(:'auto_run_mode')
+        self.auto_run_mode = attributes[:'auto_run_mode']
       end
 
       if attributes.key?(:'condition_groups')
@@ -403,6 +412,7 @@ module IncidentIo
       return true if self.equal?(o)
       self.class == o.class &&
           annotations == o.annotations &&
+          auto_run_mode == o.auto_run_mode &&
           condition_groups == o.condition_groups &&
           continue_on_step_error == o.continue_on_step_error &&
           delay == o.delay &&
@@ -432,7 +442,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [annotations, condition_groups, continue_on_step_error, delay, expressions, folder, form_fields, include_private_escalations, include_private_incidents, name, once_for, owning_team_ids, private_incident_scope, runs_on_incident_modes, runs_on_incidents, shortform, skip_step_upgrades, state, steps].hash
+      [annotations, auto_run_mode, condition_groups, continue_on_step_error, delay, expressions, folder, form_fields, include_private_escalations, include_private_incidents, name, once_for, owning_team_ids, private_incident_scope, runs_on_incident_modes, runs_on_incidents, shortform, skip_step_upgrades, state, steps].hash
     end
 
     # Builds the object from hash

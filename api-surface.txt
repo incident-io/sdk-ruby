@@ -5397,6 +5397,7 @@ model IncidentIo::WorkflowRunV2 workflow_version_number
 model IncidentIo::WorkflowRunsListResultV2 pagination_meta
 model IncidentIo::WorkflowRunsListResultV2 workflow_runs
 model IncidentIo::WorkflowRunsShowResultV2 workflow_run
+model IncidentIo::WorkflowSlimV2 auto_run_mode
 model IncidentIo::WorkflowSlimV2 condition_groups
 model IncidentIo::WorkflowSlimV2 continue_on_step_error
 model IncidentIo::WorkflowSlimV2 delay
@@ -5417,6 +5418,7 @@ model IncidentIo::WorkflowSlimV2 state
 model IncidentIo::WorkflowSlimV2 steps
 model IncidentIo::WorkflowSlimV2 trigger
 model IncidentIo::WorkflowSlimV2 version
+model IncidentIo::WorkflowV2 auto_run_mode
 model IncidentIo::WorkflowV2 condition_groups
 model IncidentIo::WorkflowV2 continue_on_step_error
 model IncidentIo::WorkflowV2 delay
@@ -5439,6 +5441,7 @@ model IncidentIo::WorkflowV2 steps
 model IncidentIo::WorkflowV2 trigger
 model IncidentIo::WorkflowV2 version
 model IncidentIo::WorkflowsCreateWorkflowPayloadV2 annotations
+model IncidentIo::WorkflowsCreateWorkflowPayloadV2 auto_run_mode
 model IncidentIo::WorkflowsCreateWorkflowPayloadV2 condition_groups
 model IncidentIo::WorkflowsCreateWorkflowPayloadV2 continue_on_step_error
 model IncidentIo::WorkflowsCreateWorkflowPayloadV2 delay
@@ -5463,6 +5466,7 @@ model IncidentIo::WorkflowsListWorkflowsResultV2 workflows
 model IncidentIo::WorkflowsShowWorkflowResultV2 management_meta
 model IncidentIo::WorkflowsShowWorkflowResultV2 workflow
 model IncidentIo::WorkflowsUpdateWorkflowPayloadV2 annotations
+model IncidentIo::WorkflowsUpdateWorkflowPayloadV2 auto_run_mode
 model IncidentIo::WorkflowsUpdateWorkflowPayloadV2 condition_groups
 model IncidentIo::WorkflowsUpdateWorkflowPayloadV2 continue_on_step_error
 model IncidentIo::WorkflowsUpdateWorkflowPayloadV2 delay

@@ -15,6 +15,9 @@ require 'time'
 
 module IncidentIo
   class WorkflowV2 < ApiModelBase
+    # Whether the workflow is configured to run immediately or ask for confirmation in the incident channel  Known values: `run_automatically`, `confirm_before_running`
+    attr_accessor :auto_run_mode
+
     # Conditions that apply to the workflow trigger
     attr_accessor :condition_groups
 
@@ -29,7 +32,7 @@ module IncidentIo
     # Folder to display the workflow in
     attr_accessor :folder
 
-    # User-configured form fields available in the workflow scope (manual triggers only)
+    # User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `auto_run_mode` of `confirm_before_running`.
     attr_accessor :form_fields
 
     # Unique identifier for the workflow
@@ -79,6 +82,7 @@ module IncidentIo
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'auto_run_mode' => :'auto_run_mode',
         :'condition_groups' => :'condition_groups',
         :'continue_on_step_error' => :'continue_on_step_error',
         :'delay' => :'delay',
@@ -116,6 +120,7 @@ module IncidentIo
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'auto_run_mode' => :'String',
         :'condition_groups' => :'Array<ConditionGroupV2>',
         :'continue_on_step_error' => :'Boolean',
         :'delay' => :'WorkflowDelayV2',
@@ -161,6 +166,12 @@ module IncidentIo
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'auto_run_mode')
+        self.auto_run_mode = attributes[:'auto_run_mode']
+      else
+        self.auto_run_mode = nil
+      end
 
       if attributes.key?(:'condition_groups')
         if (value = attributes[:'condition_groups']).is_a?(Array)
@@ -296,6 +307,10 @@ module IncidentIo
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @auto_run_mode.nil?
+        invalid_properties.push('invalid value for "auto_run_mode", auto_run_mode cannot be nil.')
+      end
+
       if @condition_groups.nil?
         invalid_properties.push('invalid value for "condition_groups", condition_groups cannot be nil.')
       end
@@ -363,6 +378,7 @@ module IncidentIo
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @auto_run_mode.nil?
       return false if @condition_groups.nil?
       return false if @continue_on_step_error.nil?
       return false if @expressions.nil?
@@ -379,6 +395,16 @@ module IncidentIo
       return false if @trigger.nil?
       return false if @version.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] auto_run_mode Value to be assigned
+    def auto_run_mode=(auto_run_mode)
+      if auto_run_mode.nil?
+        fail ArgumentError, 'auto_run_mode cannot be nil'
+      end
+
+      @auto_run_mode = auto_run_mode
     end
 
     # Custom attribute writer method with validation
@@ -536,6 +562,7 @@ module IncidentIo
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          auto_run_mode == o.auto_run_mode &&
           condition_groups == o.condition_groups &&
           continue_on_step_error == o.continue_on_step_error &&
           delay == o.delay &&
@@ -568,7 +595,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [condition_groups, continue_on_step_error, delay, expressions, folder, form_fields, id, include_private_escalations, include_private_incidents, name, once_for, owning_team_ids, private_incident_scope, runs_from, runs_on_incident_modes, runs_on_incidents, shortform, state, steps, trigger, version].hash
+      [auto_run_mode, condition_groups, continue_on_step_error, delay, expressions, folder, form_fields, id, include_private_escalations, include_private_incidents, name, once_for, owning_team_ids, private_incident_scope, runs_from, runs_on_incident_modes, runs_on_incidents, shortform, state, steps, trigger, version].hash
     end
 
     # Builds the object from hash

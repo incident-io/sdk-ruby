@@ -14,22 +14,26 @@ require 'date'
 require 'time'
 
 module IncidentIo
-  class AuditLogTargetV2 < ApiModelBase
-    # The ID of the target
-    attr_accessor :id
+  class AuditLogExtensionPluginCreatedMetadataV2 < ApiModelBase
+    # The source control provider the plugin's repository lives in (github, gitlab)
+    attr_accessor :provider
 
-    # The name of the target
-    attr_accessor :name
+    # The name of the plugin's repository
+    attr_accessor :repo_name
 
-    # The type of target  Known values: `api_key`, `alert`, `alert_chat_message_template`, `alert_route`, `alert_schema`, `alert_source`, `alert_priority`, `announcement_rule`, `announcement_post_template`, `catalog_type`, `catalog_entry`, `catalog_attribute`, `connector_config`, `custom_field`, `debrief_invite_rule`, `escalation`, `escalation_path`, `escalation_path_template`, `extension_connector`, `extension_connector_tool`, `extension_plugin`, `glossary_entry`, `investigation_trigger`, `follow_up_category`, `follow_up_priority`, `holiday_user_feed`, `hris_time_off_policy`, `incident`, `incident_call_transcription_session`, `incident_call_setting`, `incident_duration_metric`, `incident_template`, `maintenance_window`, `incident_role`, `incident_status`, `incident_timestamp`, `incident_timestamp_set_by_rule`, `incident_type`, `integration`, `internal_status_page`, `ip_allowlist`, `nudge`, `on_call_notification_method`, `on_call_notification_pause`, `organisation`, `organisation_settings`, `schedule_override`, `schedule_sync_rule`, `schedule_sync_target`, `policy`, `policy_report_schedule`, `post_incident_task`, `postmortem_template`, `postmortem_template_section`, `private_incident_membership`, `rbac_role`, `scim_group`, `schedule`, `team_role`, `secret`, `severity`, `status_page`, `status_page_sub_page`, `status_page_template`, `team_settings`, `telemetry_data_source`, `twilio_connection`, `user`, `user_api_key`, `workflow`, `activity_log`, `timeline_item`, `on_call_upsell_request`
-    attr_accessor :type
+    # The owner of the plugin's repository, including any GitLab group path
+    attr_accessor :repo_owner
+
+    # The plugin's directory within the repository, absent when the plugin is the repository root
+    attr_accessor :subpath
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'name' => :'name',
-        :'type' => :'type'
+        :'provider' => :'provider',
+        :'repo_name' => :'repo_name',
+        :'repo_owner' => :'repo_owner',
+        :'subpath' => :'subpath'
       }
     end
 
@@ -46,9 +50,10 @@ module IncidentIo
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'name' => :'String',
-        :'type' => :'String'
+        :'provider' => :'String',
+        :'repo_name' => :'String',
+        :'repo_owner' => :'String',
+        :'subpath' => :'String'
       }
     end
 
@@ -62,32 +67,38 @@ module IncidentIo
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `IncidentIo::AuditLogTargetV2` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `IncidentIo::AuditLogExtensionPluginCreatedMetadataV2` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `IncidentIo::AuditLogTargetV2`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `IncidentIo::AuditLogExtensionPluginCreatedMetadataV2`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'provider')
+        self.provider = attributes[:'provider']
       else
-        self.id = nil
+        self.provider = nil
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'repo_name')
+        self.repo_name = attributes[:'repo_name']
+      else
+        self.repo_name = nil
       end
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'repo_owner')
+        self.repo_owner = attributes[:'repo_owner']
       else
-        self.type = nil
+        self.repo_owner = nil
+      end
+
+      if attributes.key?(:'subpath')
+        self.subpath = attributes[:'subpath']
       end
     end
 
@@ -96,12 +107,16 @@ module IncidentIo
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      if @provider.nil?
+        invalid_properties.push('invalid value for "provider", provider cannot be nil.')
       end
 
-      if @type.nil?
-        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      if @repo_name.nil?
+        invalid_properties.push('invalid value for "repo_name", repo_name cannot be nil.')
+      end
+
+      if @repo_owner.nil?
+        invalid_properties.push('invalid value for "repo_owner", repo_owner cannot be nil.')
       end
 
       invalid_properties
@@ -111,29 +126,40 @@ module IncidentIo
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @id.nil?
-      return false if @type.nil?
+      return false if @provider.nil?
+      return false if @repo_name.nil?
+      return false if @repo_owner.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] id Value to be assigned
-    def id=(id)
-      if id.nil?
-        fail ArgumentError, 'id cannot be nil'
+    # @param [Object] provider Value to be assigned
+    def provider=(provider)
+      if provider.nil?
+        fail ArgumentError, 'provider cannot be nil'
       end
 
-      @id = id
+      @provider = provider
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] type Value to be assigned
-    def type=(type)
-      if type.nil?
-        fail ArgumentError, 'type cannot be nil'
+    # @param [Object] repo_name Value to be assigned
+    def repo_name=(repo_name)
+      if repo_name.nil?
+        fail ArgumentError, 'repo_name cannot be nil'
       end
 
-      @type = type
+      @repo_name = repo_name
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] repo_owner Value to be assigned
+    def repo_owner=(repo_owner)
+      if repo_owner.nil?
+        fail ArgumentError, 'repo_owner cannot be nil'
+      end
+
+      @repo_owner = repo_owner
     end
 
     # Checks equality by comparing each attribute.
@@ -141,9 +167,10 @@ module IncidentIo
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          name == o.name &&
-          type == o.type
+          provider == o.provider &&
+          repo_name == o.repo_name &&
+          repo_owner == o.repo_owner &&
+          subpath == o.subpath
     end
 
     # @see the `==` method
@@ -155,7 +182,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, type].hash
+      [provider, repo_name, repo_owner, subpath].hash
     end
 
     # Builds the object from hash

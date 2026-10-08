@@ -15,7 +15,7 @@ require 'time'
 
 module IncidentIo
   class PostmortemDocumentsAttachPayloadV1 < ApiModelBase
-    # The provider hosting the document. Set this when it can't be inferred from the permalink so the link renders correctly.  Known values: ``, `confluence`, `google_docs`, `notion`, `sharepoint`, `incident_io`, `copy_paste_basecamp`, `copy_paste_confluence`, `copy_paste_github_wiki`, `copy_paste_google_docs`, `copy_paste_notion`, `copy_paste_quip`
+    # The provider hosting the document. This is informational only: the document is always stored as a link to the permalink.  Known values: ``, `confluence`, `google_docs`, `notion`, `sharepoint`, `incident_io`, `copy_paste_basecamp`, `copy_paste_confluence`, `copy_paste_github_wiki`, `copy_paste_google_docs`, `copy_paste_notion`, `copy_paste_quip`
     attr_accessor :document_provider
 
     # The unique identifier of the incident to attach the post-mortem document to

@@ -21,7 +21,7 @@ module IncidentIo
     # URL of the resource
     attr_accessor :permalink
 
-    # E.g. PagerDuty: the external system that holds the resource  Known values: `pager_duty_incident`, `opsgenie_alert`, `datadog_monitor_alert`, `github_pull_request`, `gitlab_merge_request`, `sentry_issue`, `jira_issue`, `jsm_alert`, `atlassian_statuspage_incident`, `zendesk_ticket`, `google_calendar_event`, `outlook_calendar_event`, `slack_file`, `salesforce_case`, `arbitrary_url`, `scrubbed`, `statuspage_incident`
+    # E.g. PagerDuty: the external system that holds the resource  Known values: `pager_duty_incident`, `opsgenie_alert`, `datadog_monitor_alert`, `github_pull_request`, `gitlab_merge_request`, `sentry_issue`, `jira_issue`, `jsm_alert`, `atlassian_statuspage_incident`, `zendesk_ticket`, `google_calendar_event`, `outlook_calendar_event`, `slack_file`, `salesforce_case`, `pylon_issue`, `arbitrary_url`, `scrubbed`, `statuspage_incident`
     attr_accessor :resource_type
 
     # Title of resource

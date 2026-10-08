@@ -27,7 +27,7 @@ module IncidentIo
     # If this step ran for a specific incident (e.g. in a loop), the incident reference
     attr_accessor :incident_reference
 
-    # Status of the step  Known values: `complete`, `pending`, `error`
+    # Status of the step  Known values: `complete`, `pending`, `error`, `suspended`
     attr_accessor :status
 
     # Name of the step

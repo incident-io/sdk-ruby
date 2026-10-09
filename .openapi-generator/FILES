@@ -45,6 +45,7 @@ lib/incident_io/api/incidents_v1_api.rb
 lib/incident_io/api/incidents_v2_api.rb
 lib/incident_io/api/ip_allowlists_v1_api.rb
 lib/incident_io/api/maintenance_windows_v1_api.rb
+lib/incident_io/api/on_call_notification_pauses_v2_api.rb
 lib/incident_io/api/pay_configs_v2_api.rb
 lib/incident_io/api/pay_reports_v2_api.rb
 lib/incident_io/api/policies_v2_api.rb
@@ -961,6 +962,9 @@ lib/incident_io/models/management_meta_v2.rb
 lib/incident_io/models/new_slack_user_group_payload_v2.rb
 lib/incident_io/models/on_call_notification_method_phone_details_public_v2.rb
 lib/incident_io/models/on_call_notification_method_public_v2.rb
+lib/incident_io/models/on_call_notification_pause_v2.rb
+lib/incident_io/models/on_call_notification_pauses_list_result_v2.rb
+lib/incident_io/models/on_call_notification_pauses_show_result_v2.rb
 lib/incident_io/models/on_call_notification_rule_app_details_public_v2.rb
 lib/incident_io/models/on_call_notification_rule_method_target_public_v2.rb
 lib/incident_io/models/on_call_notification_rule_method_target_specific_public_v2.rb

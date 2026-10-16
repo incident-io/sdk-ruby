@@ -30,7 +30,7 @@ module IncidentIo
     # A title for the incident
     attr_accessor :name
 
-    # Whether to notify subscribers about this status page incident. This will not work if your status page has more than 1000 subscribers.
+    # Whether to notify subscribers about this status page incident. If your status page has more than 1000 subscribers, requests that set this to true are rejected. This limit applies only to the public API: publishing from the incident.io dashboard or Slack always notifies every subscriber.
     attr_accessor :notify_subscribers
 
     # ID of the status page. You can find this by calling the ListStatusPages endpoint.

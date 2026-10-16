@@ -36,7 +36,7 @@ module IncidentIo
     # A title for the maintenance window
     attr_accessor :name
 
-    # Whether to notify subscribers about this status page maintenance. This will not work if your status page has more than 1000 subscribers.
+    # Whether to notify subscribers about this status page maintenance. If your status page has more than 1000 subscribers, requests that set this to true are rejected. This limit applies only to the public API: publishing from the incident.io dashboard or Slack always notifies every subscriber.
     attr_accessor :notify_subscribers
 
     # The time the maintenance window starts

@@ -24,7 +24,7 @@ module IncidentIo
     # Markdown update on what's changed about this status page incident
     attr_accessor :message
 
-    # Whether to notify subscribers about this incident update. This will not work if your status page has more than 1000 subscribers.
+    # Whether to notify subscribers about this incident update. If your status page has more than 1000 subscribers, requests that set this to true are rejected. This limit applies only to the public API: publishing from the incident.io dashboard or Slack always notifies every subscriber.
     attr_accessor :notify_subscribers
 
     # ID of the status page incident

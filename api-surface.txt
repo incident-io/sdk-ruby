@@ -424,6 +424,8 @@ api IncidentIo::MaintenanceWindowsV1Api#maintenance_windows_v1_show 1
 api IncidentIo::MaintenanceWindowsV1Api#maintenance_windows_v1_show_with_http_info 1
 api IncidentIo::MaintenanceWindowsV1Api#maintenance_windows_v1_update 2
 api IncidentIo::MaintenanceWindowsV1Api#maintenance_windows_v1_update_with_http_info 2
+api IncidentIo::ManagedResourcesV2Api#managed_resources_v2_create_managed_resource 1
+api IncidentIo::ManagedResourcesV2Api#managed_resources_v2_create_managed_resource_with_http_info 1
 api IncidentIo::OnCallNotificationPausesV2Api#on_call_notification_pauses_v2_list 0
 api IncidentIo::OnCallNotificationPausesV2Api#on_call_notification_pauses_v2_list_with_http_info 0
 api IncidentIo::OnCallNotificationPausesV2Api#on_call_notification_pauses_v2_show 1
@@ -4513,6 +4515,15 @@ model IncidentIo::MaintenanceWindowsUpdatePayloadV1 resolve_on_end
 model IncidentIo::MaintenanceWindowsUpdatePayloadV1 show_in_sidebar
 model IncidentIo::MaintenanceWindowsUpdatePayloadV1 start_at
 model IncidentIo::MaintenanceWindowsUpdateResultV1 maintenance_window
+model IncidentIo::ManagedResourceV2 annotations
+model IncidentIo::ManagedResourceV2 managed_by
+model IncidentIo::ManagedResourceV2 resource_id
+model IncidentIo::ManagedResourceV2 resource_type
+model IncidentIo::ManagedResourceV2 source_url
+model IncidentIo::ManagedResourcesCreateManagedResourcePayloadV2 annotations
+model IncidentIo::ManagedResourcesCreateManagedResourcePayloadV2 resource_id
+model IncidentIo::ManagedResourcesCreateManagedResourcePayloadV2 resource_type
+model IncidentIo::ManagedResourcesCreateManagedResourceResultV2 managed_resource
 model IncidentIo::ManagementMetaV2 annotations
 model IncidentIo::ManagementMetaV2 managed_by
 model IncidentIo::ManagementMetaV2 source_url

@@ -45,6 +45,7 @@ lib/incident_io/api/incidents_v1_api.rb
 lib/incident_io/api/incidents_v2_api.rb
 lib/incident_io/api/ip_allowlists_v1_api.rb
 lib/incident_io/api/maintenance_windows_v1_api.rb
+lib/incident_io/api/managed_resources_v2_api.rb
 lib/incident_io/api/on_call_notification_pauses_v2_api.rb
 lib/incident_io/api/pay_configs_v2_api.rb
 lib/incident_io/api/pay_reports_v2_api.rb
@@ -962,6 +963,9 @@ lib/incident_io/models/maintenance_windows_list_result_v1.rb
 lib/incident_io/models/maintenance_windows_show_result_v1.rb
 lib/incident_io/models/maintenance_windows_update_payload_v1.rb
 lib/incident_io/models/maintenance_windows_update_result_v1.rb
+lib/incident_io/models/managed_resource_v2.rb
+lib/incident_io/models/managed_resources_create_managed_resource_payload_v2.rb
+lib/incident_io/models/managed_resources_create_managed_resource_result_v2.rb
 lib/incident_io/models/management_meta_v2.rb
 lib/incident_io/models/new_slack_user_group_payload_v2.rb
 lib/incident_io/models/on_call_notification_method_phone_details_public_v2.rb

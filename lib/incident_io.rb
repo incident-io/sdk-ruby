@@ -891,6 +891,7 @@ IncidentIo.autoload :IncidentUpdatesListResultV2, 'incident_io/models/incident_u
 IncidentIo.autoload :IncidentV1, 'incident_io/models/incident_v1'
 IncidentIo.autoload :IncidentV2, 'incident_io/models/incident_v2'
 IncidentIo.autoload :IncidentWithStatusChangeV2, 'incident_io/models/incident_with_status_change_v2'
+IncidentIo.autoload :IncidentsConnectExternalIssuePayloadV2, 'incident_io/models/incidents_connect_external_issue_payload_v2'
 IncidentIo.autoload :IncidentsCreatePayloadV1, 'incident_io/models/incidents_create_payload_v1'
 IncidentIo.autoload :IncidentsCreatePayloadV2, 'incident_io/models/incidents_create_payload_v2'
 IncidentIo.autoload :IncidentsCreateResultV1, 'incident_io/models/incidents_create_result_v1'

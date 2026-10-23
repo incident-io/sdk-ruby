@@ -404,6 +404,8 @@ api IncidentIo::IncidentsV1Api#incidents_v1_list 0
 api IncidentIo::IncidentsV1Api#incidents_v1_list_with_http_info 0
 api IncidentIo::IncidentsV1Api#incidents_v1_show 1
 api IncidentIo::IncidentsV1Api#incidents_v1_show_with_http_info 1
+api IncidentIo::IncidentsV2Api#incidents_v2_connect_external_issue 2
+api IncidentIo::IncidentsV2Api#incidents_v2_connect_external_issue_with_http_info 2
 api IncidentIo::IncidentsV2Api#incidents_v2_create 1
 api IncidentIo::IncidentsV2Api#incidents_v2_create_with_http_info 1
 api IncidentIo::IncidentsV2Api#incidents_v2_edit 2
@@ -4406,6 +4408,10 @@ model IncidentIo::IncidentWithStatusChangeV2 incident
 model IncidentIo::IncidentWithStatusChangeV2 message
 model IncidentIo::IncidentWithStatusChangeV2 new_status
 model IncidentIo::IncidentWithStatusChangeV2 previous_status
+model IncidentIo::IncidentsConnectExternalIssuePayloadV2 issue_template_id
+model IncidentIo::IncidentsConnectExternalIssuePayloadV2 provider
+model IncidentIo::IncidentsConnectExternalIssuePayloadV2 replace
+model IncidentIo::IncidentsConnectExternalIssuePayloadV2 url
 model IncidentIo::IncidentsCreatePayloadV1 custom_field_entries
 model IncidentIo::IncidentsCreatePayloadV1 idempotency_key
 model IncidentIo::IncidentsCreatePayloadV1 incident_role_assignments

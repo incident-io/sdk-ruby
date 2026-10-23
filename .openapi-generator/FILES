@@ -933,6 +933,7 @@ lib/incident_io/models/incident_updates_list_result_v2.rb
 lib/incident_io/models/incident_v1.rb
 lib/incident_io/models/incident_v2.rb
 lib/incident_io/models/incident_with_status_change_v2.rb
+lib/incident_io/models/incidents_connect_external_issue_payload_v2.rb
 lib/incident_io/models/incidents_create_payload_v1.rb
 lib/incident_io/models/incidents_create_payload_v2.rb
 lib/incident_io/models/incidents_create_result_v1.rb

@@ -19,6 +19,80 @@ module IncidentIo
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # ConnectExternalIssue Incidents V2
+    # Connect an existing issue in an issue tracker to an incident, as its external issue.  The issue is synced using the given incident ticket template, as if incident.io had created it from that template. The next sync writes the incident's fields into the issue.  This needs the incidents.connect_external_issue scope, either across the organisation or from an incident role on this incident.  This fails if the incident already has a different external issue (unless replace is true), or if the issue is already linked to another incident or follow-up.  The ID supplied can be either the incident's full ID, or the numeric part of its reference.
+    # @param id [String] The unique identifier of the incident
+    # @param incidents_connect_external_issue_payload_v2 [IncidentsConnectExternalIssuePayloadV2] 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def incidents_v2_connect_external_issue(id, incidents_connect_external_issue_payload_v2, opts = {})
+      incidents_v2_connect_external_issue_with_http_info(id, incidents_connect_external_issue_payload_v2, opts)
+      nil
+    end
+
+    # ConnectExternalIssue Incidents V2
+    # Connect an existing issue in an issue tracker to an incident, as its external issue.  The issue is synced using the given incident ticket template, as if incident.io had created it from that template. The next sync writes the incident&#39;s fields into the issue.  This needs the incidents.connect_external_issue scope, either across the organisation or from an incident role on this incident.  This fails if the incident already has a different external issue (unless replace is true), or if the issue is already linked to another incident or follow-up.  The ID supplied can be either the incident&#39;s full ID, or the numeric part of its reference.
+    # @param id [String] The unique identifier of the incident
+    # @param incidents_connect_external_issue_payload_v2 [IncidentsConnectExternalIssuePayloadV2] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def incidents_v2_connect_external_issue_with_http_info(id, incidents_connect_external_issue_payload_v2, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentsV2Api.incidents_v2_connect_external_issue ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling IncidentsV2Api.incidents_v2_connect_external_issue"
+      end
+      # verify the required parameter 'incidents_connect_external_issue_payload_v2' is set
+      if @api_client.config.client_side_validation && incidents_connect_external_issue_payload_v2.nil?
+        fail ArgumentError, "Missing the required parameter 'incidents_connect_external_issue_payload_v2' when calling IncidentsV2Api.incidents_v2_connect_external_issue"
+      end
+      # resource path
+      local_var_path = '/v2/incidents/{id}/actions/connect_external_issue'.sub('{id}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(incidents_connect_external_issue_payload_v2)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['BearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"IncidentsV2Api.incidents_v2_connect_external_issue",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentsV2Api#incidents_v2_connect_external_issue\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create Incidents V2
     # Create a new incident.  Note that if the incident mode is set to \"retrospective\" then the new incident will not be announced in Slack. 
     # @param incidents_create_payload_v2 [IncidentsCreatePayloadV2] 

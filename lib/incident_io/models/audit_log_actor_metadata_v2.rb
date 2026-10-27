@@ -33,6 +33,9 @@ module IncidentIo
     # The custom role slugs of the user, separated by commas (if it's a user actor)
     attr_accessor :user_custom_role_slugs
 
+    # How the user made the change, when it wasn't directly (if it's a user actor)
+    attr_accessor :via
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -41,7 +44,8 @@ module IncidentIo
         :'external_resource_external_id' => :'external_resource_external_id',
         :'external_resource_type' => :'external_resource_type',
         :'user_base_role_slug' => :'user_base_role_slug',
-        :'user_custom_role_slugs' => :'user_custom_role_slugs'
+        :'user_custom_role_slugs' => :'user_custom_role_slugs',
+        :'via' => :'via'
       }
     end
 
@@ -63,7 +67,8 @@ module IncidentIo
         :'external_resource_external_id' => :'String',
         :'external_resource_type' => :'String',
         :'user_base_role_slug' => :'String',
-        :'user_custom_role_slugs' => :'String'
+        :'user_custom_role_slugs' => :'String',
+        :'via' => :'String'
       }
     end
 
@@ -112,6 +117,10 @@ module IncidentIo
       if attributes.key?(:'user_custom_role_slugs')
         self.user_custom_role_slugs = attributes[:'user_custom_role_slugs']
       end
+
+      if attributes.key?(:'via')
+        self.via = attributes[:'via']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -139,7 +148,8 @@ module IncidentIo
           external_resource_external_id == o.external_resource_external_id &&
           external_resource_type == o.external_resource_type &&
           user_base_role_slug == o.user_base_role_slug &&
-          user_custom_role_slugs == o.user_custom_role_slugs
+          user_custom_role_slugs == o.user_custom_role_slugs &&
+          via == o.via
     end
 
     # @see the `==` method
@@ -151,7 +161,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alert_source_id, api_key_roles, external_resource_external_id, external_resource_type, user_base_role_slug, user_custom_role_slugs].hash
+      [alert_source_id, api_key_roles, external_resource_external_id, external_resource_type, user_base_role_slug, user_custom_role_slugs, via].hash
     end
 
     # Builds the object from hash

@@ -276,6 +276,7 @@ lib/incident_io/models/audit_log_announcement_post_template_owning_teams_metadat
 lib/incident_io/models/audit_log_announcement_rule_metadata_v2.rb
 lib/incident_io/models/audit_log_catalog_attribute_updated_metadata_v2.rb
 lib/incident_io/models/audit_log_catalog_attribute_updated_metadata_v2_v2.rb
+lib/incident_io/models/audit_log_code_repository_accessed_metadata_v2.rb
 lib/incident_io/models/audit_log_email_otp_login_setting_updated_metadata_v2.rb
 lib/incident_io/models/audit_log_entry_context_v2.rb
 lib/incident_io/models/audit_log_extension_connector_called_metadata_v2.rb
@@ -392,6 +393,7 @@ lib/incident_io/models/audit_logs_catalog_type_deleted_v1.rb
 lib/incident_io/models/audit_logs_catalog_type_deleted_v2.rb
 lib/incident_io/models/audit_logs_catalog_type_updated_v1.rb
 lib/incident_io/models/audit_logs_catalog_type_updated_v2.rb
+lib/incident_io/models/audit_logs_code_repository_accessed_v1.rb
 lib/incident_io/models/audit_logs_connector_config_created_v1.rb
 lib/incident_io/models/audit_logs_connector_config_created_v2.rb
 lib/incident_io/models/audit_logs_connector_config_token_generated_v1.rb

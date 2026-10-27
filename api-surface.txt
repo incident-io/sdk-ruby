@@ -1409,6 +1409,12 @@ model IncidentIo::AuditLogCatalogAttributeUpdatedMetadataV2 after_values
 model IncidentIo::AuditLogCatalogAttributeUpdatedMetadataV2 before_values
 model IncidentIo::AuditLogCatalogAttributeUpdatedMetadataV2V2 after_values
 model IncidentIo::AuditLogCatalogAttributeUpdatedMetadataV2V2 before_values
+model IncidentIo::AuditLogCodeRepositoryAccessedMetadataV2 alert_id
+model IncidentIo::AuditLogCodeRepositoryAccessedMetadataV2 incident_id
+model IncidentIo::AuditLogCodeRepositoryAccessedMetadataV2 investigation_id
+model IncidentIo::AuditLogCodeRepositoryAccessedMetadataV2 revision_sha
+model IncidentIo::AuditLogCodeRepositoryAccessedMetadataV2 run_type
+model IncidentIo::AuditLogCodeRepositoryAccessedMetadataV2 user_id
 model IncidentIo::AuditLogEmailOtpLoginSettingUpdatedMetadataV2 enabled
 model IncidentIo::AuditLogEntryContextV2 location
 model IncidentIo::AuditLogEntryContextV2 user_agent
@@ -2016,6 +2022,13 @@ model IncidentIo::AuditLogsCatalogTypeUpdatedV2 context
 model IncidentIo::AuditLogsCatalogTypeUpdatedV2 occurred_at
 model IncidentIo::AuditLogsCatalogTypeUpdatedV2 targets
 model IncidentIo::AuditLogsCatalogTypeUpdatedV2 version
+model IncidentIo::AuditLogsCodeRepositoryAccessedV1 action
+model IncidentIo::AuditLogsCodeRepositoryAccessedV1 actor
+model IncidentIo::AuditLogsCodeRepositoryAccessedV1 context
+model IncidentIo::AuditLogsCodeRepositoryAccessedV1 metadata
+model IncidentIo::AuditLogsCodeRepositoryAccessedV1 occurred_at
+model IncidentIo::AuditLogsCodeRepositoryAccessedV1 targets
+model IncidentIo::AuditLogsCodeRepositoryAccessedV1 version
 model IncidentIo::AuditLogsConnectorConfigCreatedV1 action
 model IncidentIo::AuditLogsConnectorConfigCreatedV1 actor
 model IncidentIo::AuditLogsConnectorConfigCreatedV1 context

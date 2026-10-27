@@ -18,7 +18,7 @@ module IncidentIo
     # IDs of teams that own this alert source
     attr_accessor :owning_team_ids
 
-    # Type of alert source  Known values: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `git_guardian`, `github_issue`, `google_cloud`, `google_secops`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `logzio`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`
+    # Type of alert source  Known values: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `git_guardian`, `github_issue`, `google_cloud`, `google_secops`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `logzio`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`
     attr_accessor :source_type
 
     attr_accessor :template

@@ -296,6 +296,7 @@ lib/incident_io/models/audit_log_on_call_notification_method_metadata_v2.rb
 lib/incident_io/models/audit_log_on_call_notification_pause_metadata_v2.rb
 lib/incident_io/models/audit_log_on_call_upsell_requested_metadata_v2.rb
 lib/incident_io/models/audit_log_organisation_settings_updated_metadata_v2.rb
+lib/incident_io/models/audit_log_organisation_settings_updated_metadata_v3_v2.rb
 lib/incident_io/models/audit_log_policy_metadata_v2.rb
 lib/incident_io/models/audit_log_private_alert_access_attempted_metadata_v2.rb
 lib/incident_io/models/audit_log_private_escalation_access_attempted_metadata_v2.rb
@@ -575,6 +576,7 @@ lib/incident_io/models/audit_logs_on_call_upsell_requested_v1.rb
 lib/incident_io/models/audit_logs_on_call_upsell_requested_v2.rb
 lib/incident_io/models/audit_logs_organisation_settings_updated_v1.rb
 lib/incident_io/models/audit_logs_organisation_settings_updated_v2.rb
+lib/incident_io/models/audit_logs_organisation_settings_updated_v3.rb
 lib/incident_io/models/audit_logs_policy_created_v1.rb
 lib/incident_io/models/audit_logs_policy_created_v2.rb
 lib/incident_io/models/audit_logs_policy_created_v3.rb

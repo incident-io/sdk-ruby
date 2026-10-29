@@ -20,7 +20,7 @@ module IncidentIo
       @api_client = api_client
     end
     # Create Status Page Components V2
-    # Create a status page component. Placement on a page is controlled separately via status page structures.
+    # Create a status page component. Placement on a page is controlled separately via status page structures.  This endpoint requires an API key with the \"Manage organization settings (e.g. custom fields)\" scope.
     # @param status_page_components_create_payload_v2 [StatusPageComponentsCreatePayloadV2] 
     # @param [Hash] opts the optional parameters
     # @return [StatusPageComponentsCreateResultV2]
@@ -30,7 +30,7 @@ module IncidentIo
     end
 
     # Create Status Page Components V2
-    # Create a status page component. Placement on a page is controlled separately via status page structures.
+    # Create a status page component. Placement on a page is controlled separately via status page structures.  This endpoint requires an API key with the \&quot;Manage organization settings (e.g. custom fields)\&quot; scope.
     # @param status_page_components_create_payload_v2 [StatusPageComponentsCreatePayloadV2] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StatusPageComponentsCreateResultV2, Integer, Hash)>] StatusPageComponentsCreateResultV2 data, response status code and response headers
@@ -88,7 +88,7 @@ module IncidentIo
     end
 
     # Destroy Status Page Components V2
-    # Archive a status page component.
+    # Archive a status page component.  This endpoint requires an API key with the \"Manage organization settings (e.g. custom fields)\" scope.
     # @param id [String] Unique identifier of the status page component
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -98,7 +98,7 @@ module IncidentIo
     end
 
     # Destroy Status Page Components V2
-    # Archive a status page component.
+    # Archive a status page component.  This endpoint requires an API key with the \&quot;Manage organization settings (e.g. custom fields)\&quot; scope.
     # @param id [String] Unique identifier of the status page component
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -271,7 +271,7 @@ module IncidentIo
     end
 
     # Update Status Page Components V2
-    # Update a status page component's name and description.
+    # Update a status page component's name and description.  This endpoint requires an API key with the \"Manage organization settings (e.g. custom fields)\" scope.
     # @param id [String] Unique identifier of the status page component
     # @param status_page_components_update_payload_v2 [StatusPageComponentsUpdatePayloadV2] 
     # @param [Hash] opts the optional parameters
@@ -282,7 +282,7 @@ module IncidentIo
     end
 
     # Update Status Page Components V2
-    # Update a status page component&#39;s name and description.
+    # Update a status page component&#39;s name and description.  This endpoint requires an API key with the \&quot;Manage organization settings (e.g. custom fields)\&quot; scope.
     # @param id [String] Unique identifier of the status page component
     # @param status_page_components_update_payload_v2 [StatusPageComponentsUpdatePayloadV2] 
     # @param [Hash] opts the optional parameters

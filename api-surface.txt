@@ -2029,6 +2029,12 @@ model IncidentIo::AuditLogsCodeRepositoryAccessedV1 metadata
 model IncidentIo::AuditLogsCodeRepositoryAccessedV1 occurred_at
 model IncidentIo::AuditLogsCodeRepositoryAccessedV1 targets
 model IncidentIo::AuditLogsCodeRepositoryAccessedV1 version
+model IncidentIo::AuditLogsConnectorConfigArchivedV1 action
+model IncidentIo::AuditLogsConnectorConfigArchivedV1 actor
+model IncidentIo::AuditLogsConnectorConfigArchivedV1 context
+model IncidentIo::AuditLogsConnectorConfigArchivedV1 occurred_at
+model IncidentIo::AuditLogsConnectorConfigArchivedV1 targets
+model IncidentIo::AuditLogsConnectorConfigArchivedV1 version
 model IncidentIo::AuditLogsConnectorConfigCreatedV1 action
 model IncidentIo::AuditLogsConnectorConfigCreatedV1 actor
 model IncidentIo::AuditLogsConnectorConfigCreatedV1 context

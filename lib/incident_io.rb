@@ -344,6 +344,7 @@ IncidentIo.autoload :AuditLogsCatalogTypeDeletedV2, 'incident_io/models/audit_lo
 IncidentIo.autoload :AuditLogsCatalogTypeUpdatedV1, 'incident_io/models/audit_logs_catalog_type_updated_v1'
 IncidentIo.autoload :AuditLogsCatalogTypeUpdatedV2, 'incident_io/models/audit_logs_catalog_type_updated_v2'
 IncidentIo.autoload :AuditLogsCodeRepositoryAccessedV1, 'incident_io/models/audit_logs_code_repository_accessed_v1'
+IncidentIo.autoload :AuditLogsConnectorConfigArchivedV1, 'incident_io/models/audit_logs_connector_config_archived_v1'
 IncidentIo.autoload :AuditLogsConnectorConfigCreatedV1, 'incident_io/models/audit_logs_connector_config_created_v1'
 IncidentIo.autoload :AuditLogsConnectorConfigCreatedV2, 'incident_io/models/audit_logs_connector_config_created_v2'
 IncidentIo.autoload :AuditLogsConnectorConfigTokenGeneratedV1, 'incident_io/models/audit_logs_connector_config_token_generated_v1'

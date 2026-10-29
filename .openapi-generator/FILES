@@ -394,6 +394,7 @@ lib/incident_io/models/audit_logs_catalog_type_deleted_v2.rb
 lib/incident_io/models/audit_logs_catalog_type_updated_v1.rb
 lib/incident_io/models/audit_logs_catalog_type_updated_v2.rb
 lib/incident_io/models/audit_logs_code_repository_accessed_v1.rb
+lib/incident_io/models/audit_logs_connector_config_archived_v1.rb
 lib/incident_io/models/audit_logs_connector_config_created_v1.rb
 lib/incident_io/models/audit_logs_connector_config_created_v2.rb
 lib/incident_io/models/audit_logs_connector_config_token_generated_v1.rb

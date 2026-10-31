@@ -15,7 +15,7 @@ require 'time'
 
 module IncidentIo
   class AuditLogTelemetryDataSourceCallerIdentitySharingChangedMetadataV2 < ApiModelBase
-    # Whether tool calls to the connector carry the caller's identity after the change (true, false)
+    # Whether calls to the data source carry the caller's identity after the change (true, false)
     attr_accessor :enabled
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -21,6 +21,9 @@ module IncidentIo
     # Values of this entry
     attr_accessor :attribute_values
 
+    # Aliases your organisation has added to an entry of a catalog type that incident.io syncs, such as a schedule or escalation path, which you can't change aliases on directly. Syncs keep them, and they are also listed in aliases. When you update an entry, omit this or send null to keep its current custom aliases, send an empty list to clear them, or send a list to replace them.
+    attr_accessor :custom_aliases
+
     # An optional alternative ID for this entry, which is ensured to be unique for the type
     attr_accessor :external_id
 
@@ -38,6 +41,7 @@ module IncidentIo
       {
         :'aliases' => :'aliases',
         :'attribute_values' => :'attribute_values',
+        :'custom_aliases' => :'custom_aliases',
         :'external_id' => :'external_id',
         :'name' => :'name',
         :'rank' => :'rank',
@@ -60,6 +64,7 @@ module IncidentIo
       {
         :'aliases' => :'Array<String>',
         :'attribute_values' => :'Hash<String, CatalogEngineParamBindingPayloadV3>',
+        :'custom_aliases' => :'Array<String>',
         :'external_id' => :'String',
         :'name' => :'String',
         :'rank' => :'Integer',
@@ -101,6 +106,12 @@ module IncidentIo
         end
       else
         self.attribute_values = nil
+      end
+
+      if attributes.key?(:'custom_aliases')
+        if (value = attributes[:'custom_aliases']).is_a?(Array)
+          self.custom_aliases = value
+        end
       end
 
       if attributes.key?(:'external_id')
@@ -176,6 +187,7 @@ module IncidentIo
       self.class == o.class &&
           aliases == o.aliases &&
           attribute_values == o.attribute_values &&
+          custom_aliases == o.custom_aliases &&
           external_id == o.external_id &&
           name == o.name &&
           rank == o.rank &&
@@ -191,7 +203,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aliases, attribute_values, external_id, name, rank, update_attributes].hash
+      [aliases, attribute_values, custom_aliases, external_id, name, rank, update_attributes].hash
     end
 
     # Builds the object from hash

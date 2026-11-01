@@ -4688,6 +4688,7 @@ model IncidentIo::CatalogEntryV3 archived_at
 model IncidentIo::CatalogEntryV3 attribute_values
 model IncidentIo::CatalogEntryV3 catalog_type_id
 model IncidentIo::CatalogEntryV3 created_at
+model IncidentIo::CatalogEntryV3 custom_aliases
 model IncidentIo::CatalogEntryV3 external_id
 model IncidentIo::CatalogEntryV3 id
 model IncidentIo::CatalogEntryV3 name
@@ -4798,6 +4799,7 @@ model IncidentIo::CatalogTypeV3 registry_type
 model IncidentIo::CatalogTypeV3 required_integrations
 model IncidentIo::CatalogTypeV3 schema
 model IncidentIo::CatalogTypeV3 source_repo_url
+model IncidentIo::CatalogTypeV3 supports_custom_aliases
 model IncidentIo::CatalogTypeV3 type_name
 model IncidentIo::CatalogTypeV3 updated_at
 model IncidentIo::CatalogTypeV3 use_name_as_identifier
@@ -4808,6 +4810,7 @@ model IncidentIo::CatalogUpdateEntryPayloadV2 name
 model IncidentIo::CatalogUpdateEntryPayloadV2 rank
 model IncidentIo::CatalogUpdateEntryPayloadV3 aliases
 model IncidentIo::CatalogUpdateEntryPayloadV3 attribute_values
+model IncidentIo::CatalogUpdateEntryPayloadV3 custom_aliases
 model IncidentIo::CatalogUpdateEntryPayloadV3 external_id
 model IncidentIo::CatalogUpdateEntryPayloadV3 name
 model IncidentIo::CatalogUpdateEntryPayloadV3 rank
@@ -6113,6 +6116,7 @@ model IncidentIo::PaginationMetaResultWithTotalV3 page_size
 model IncidentIo::PaginationMetaResultWithTotalV3 total_record_count
 model IncidentIo::PartialEntryPayloadV3 aliases
 model IncidentIo::PartialEntryPayloadV3 attribute_values
+model IncidentIo::PartialEntryPayloadV3 custom_aliases
 model IncidentIo::PartialEntryPayloadV3 entry_id
 model IncidentIo::PartialEntryPayloadV3 external_id
 model IncidentIo::PartialEntryPayloadV3 name

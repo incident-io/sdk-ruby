@@ -74,6 +74,9 @@ module IncidentIo
     # The url of the external repository where this type is managed
     attr_accessor :source_repo_url
 
+    # Whether entries of this type take custom_aliases. Only catalog types that incident.io syncs do, as you can't change their aliases directly, and not those whose aliases you edit elsewhere, such as alert priorities.
+    attr_accessor :supports_custom_aliases
+
     # The type name of this catalog type, to be used when defining attributes. This is immutable once a CatalogType has been created. For non-externally sync types, it must follow the pattern Custom[\"SomeName\"]
     attr_accessor :type_name
 
@@ -106,6 +109,7 @@ module IncidentIo
         :'required_integrations' => :'required_integrations',
         :'schema' => :'schema',
         :'source_repo_url' => :'source_repo_url',
+        :'supports_custom_aliases' => :'supports_custom_aliases',
         :'type_name' => :'type_name',
         :'updated_at' => :'updated_at',
         :'use_name_as_identifier' => :'use_name_as_identifier'
@@ -145,6 +149,7 @@ module IncidentIo
         :'required_integrations' => :'Array<String>',
         :'schema' => :'CatalogTypeSchemaV3',
         :'source_repo_url' => :'String',
+        :'supports_custom_aliases' => :'Boolean',
         :'type_name' => :'String',
         :'updated_at' => :'Time',
         :'use_name_as_identifier' => :'Boolean'
@@ -285,6 +290,12 @@ module IncidentIo
         self.source_repo_url = attributes[:'source_repo_url']
       end
 
+      if attributes.key?(:'supports_custom_aliases')
+        self.supports_custom_aliases = attributes[:'supports_custom_aliases']
+      else
+        self.supports_custom_aliases = nil
+      end
+
       if attributes.key?(:'type_name')
         self.type_name = attributes[:'type_name']
       else
@@ -357,6 +368,10 @@ module IncidentIo
         invalid_properties.push('invalid value for "schema", schema cannot be nil.')
       end
 
+      if @supports_custom_aliases.nil?
+        invalid_properties.push('invalid value for "supports_custom_aliases", supports_custom_aliases cannot be nil.')
+      end
+
       if @type_name.nil?
         invalid_properties.push('invalid value for "type_name", type_name cannot be nil.')
       end
@@ -388,6 +403,7 @@ module IncidentIo
       return false if @name.nil?
       return false if @ranked.nil?
       return false if @schema.nil?
+      return false if @supports_custom_aliases.nil?
       return false if @type_name.nil?
       return false if @updated_at.nil?
       return false if @use_name_as_identifier.nil?
@@ -515,6 +531,16 @@ module IncidentIo
     end
 
     # Custom attribute writer method with validation
+    # @param [Object] supports_custom_aliases Value to be assigned
+    def supports_custom_aliases=(supports_custom_aliases)
+      if supports_custom_aliases.nil?
+        fail ArgumentError, 'supports_custom_aliases cannot be nil'
+      end
+
+      @supports_custom_aliases = supports_custom_aliases
+    end
+
+    # Custom attribute writer method with validation
     # @param [Object] type_name Value to be assigned
     def type_name=(type_name)
       if type_name.nil?
@@ -569,6 +595,7 @@ module IncidentIo
           required_integrations == o.required_integrations &&
           schema == o.schema &&
           source_repo_url == o.source_repo_url &&
+          supports_custom_aliases == o.supports_custom_aliases &&
           type_name == o.type_name &&
           updated_at == o.updated_at &&
           use_name_as_identifier == o.use_name_as_identifier
@@ -583,7 +610,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [annotations, categories, color, created_at, description, dynamic_resource_parameter, engine_resource_type, estimated_count, icon, id, is_editable, is_team_type, last_synced_at, name, owning_team_ids, ranked, registry_type, required_integrations, schema, source_repo_url, type_name, updated_at, use_name_as_identifier].hash
+      [annotations, categories, color, created_at, description, dynamic_resource_parameter, engine_resource_type, estimated_count, icon, id, is_editable, is_team_type, last_synced_at, name, owning_team_ids, ranked, registry_type, required_integrations, schema, source_repo_url, supports_custom_aliases, type_name, updated_at, use_name_as_identifier].hash
     end
 
     # Builds the object from hash

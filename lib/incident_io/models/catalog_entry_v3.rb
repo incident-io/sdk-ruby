@@ -30,6 +30,9 @@ module IncidentIo
     # When this entry was created
     attr_accessor :created_at
 
+    # Aliases your organisation has added to an entry of a catalog type that incident.io syncs, such as a schedule or escalation path, which you can't change aliases on directly. Syncs keep them, and they are also listed in aliases. When you update an entry, omit this or send null to keep its current custom aliases, send an empty list to clear them, or send a list to replace them.
+    attr_accessor :custom_aliases
+
     # An optional alternative ID for this entry, which is ensured to be unique for the type
     attr_accessor :external_id
 
@@ -53,6 +56,7 @@ module IncidentIo
         :'attribute_values' => :'attribute_values',
         :'catalog_type_id' => :'catalog_type_id',
         :'created_at' => :'created_at',
+        :'custom_aliases' => :'custom_aliases',
         :'external_id' => :'external_id',
         :'id' => :'id',
         :'name' => :'name',
@@ -79,6 +83,7 @@ module IncidentIo
         :'attribute_values' => :'Hash<String, CatalogEntryEngineParamBindingV3>',
         :'catalog_type_id' => :'String',
         :'created_at' => :'Time',
+        :'custom_aliases' => :'Array<String>',
         :'external_id' => :'String',
         :'id' => :'String',
         :'name' => :'String',
@@ -141,6 +146,14 @@ module IncidentIo
         self.created_at = nil
       end
 
+      if attributes.key?(:'custom_aliases')
+        if (value = attributes[:'custom_aliases']).is_a?(Array)
+          self.custom_aliases = value
+        end
+      else
+        self.custom_aliases = nil
+      end
+
       if attributes.key?(:'external_id')
         self.external_id = attributes[:'external_id']
       end
@@ -191,6 +204,10 @@ module IncidentIo
         invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
       end
 
+      if @custom_aliases.nil?
+        invalid_properties.push('invalid value for "custom_aliases", custom_aliases cannot be nil.')
+      end
+
       if @id.nil?
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
@@ -218,6 +235,7 @@ module IncidentIo
       return false if @attribute_values.nil?
       return false if @catalog_type_id.nil?
       return false if @created_at.nil?
+      return false if @custom_aliases.nil?
       return false if @id.nil?
       return false if @name.nil?
       return false if @rank.nil?
@@ -263,6 +281,16 @@ module IncidentIo
       end
 
       @created_at = created_at
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] custom_aliases Value to be assigned
+    def custom_aliases=(custom_aliases)
+      if custom_aliases.nil?
+        fail ArgumentError, 'custom_aliases cannot be nil'
+      end
+
+      @custom_aliases = custom_aliases
     end
 
     # Custom attribute writer method with validation
@@ -315,6 +343,7 @@ module IncidentIo
           attribute_values == o.attribute_values &&
           catalog_type_id == o.catalog_type_id &&
           created_at == o.created_at &&
+          custom_aliases == o.custom_aliases &&
           external_id == o.external_id &&
           id == o.id &&
           name == o.name &&
@@ -331,7 +360,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aliases, archived_at, attribute_values, catalog_type_id, created_at, external_id, id, name, rank, updated_at].hash
+      [aliases, archived_at, attribute_values, catalog_type_id, created_at, custom_aliases, external_id, id, name, rank, updated_at].hash
     end
 
     # Builds the object from hash

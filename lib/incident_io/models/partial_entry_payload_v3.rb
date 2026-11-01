@@ -31,7 +31,7 @@ module IncidentIo
     # If specified, will update the name of the entry. When omitted, preserves the existing name.
     attr_accessor :name
 
-    # If specified, will update the rank of the entry. When omitted, rank will be set to null (allowing rank removal).
+    # If specified, will update the rank of the entry. When omitted, rank will be set to null (allowing rank removal), unless incident.io syncs the catalog type, in which case the existing rank is preserved.
     attr_accessor :rank
 
     # Attribute mapping from ruby-style variable name to JSON key.

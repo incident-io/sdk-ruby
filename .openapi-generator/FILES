@@ -287,7 +287,9 @@ lib/incident_io/models/audit_log_extension_connector_called_metadata_v5_v2.rb
 lib/incident_io/models/audit_log_extension_plugin_created_metadata_v2.rb
 lib/incident_io/models/audit_log_extension_plugin_updated_metadata_v2.rb
 lib/incident_io/models/audit_log_hris_time_off_policy_updated_metadata_v2.rb
+lib/incident_io/models/audit_log_incident_summary_config_updated_metadata_v2.rb
 lib/incident_io/models/audit_log_incident_type_default_teams_metadata_v2.rb
+lib/incident_io/models/audit_log_incident_update_config_updated_metadata_v2.rb
 lib/incident_io/models/audit_log_integration_updated_metadata_v2.rb
 lib/incident_io/models/audit_log_investigation_config_updated_metadata_v2.rb
 lib/incident_io/models/audit_log_investigation_trigger_metadata_v2.rb
@@ -494,6 +496,7 @@ lib/incident_io/models/audit_logs_incident_status_deleted_v1.rb
 lib/incident_io/models/audit_logs_incident_status_deleted_v2.rb
 lib/incident_io/models/audit_logs_incident_status_updated_v1.rb
 lib/incident_io/models/audit_logs_incident_status_updated_v2.rb
+lib/incident_io/models/audit_logs_incident_summary_config_updated_v1.rb
 lib/incident_io/models/audit_logs_incident_template_created_v1.rb
 lib/incident_io/models/audit_logs_incident_template_created_v2.rb
 lib/incident_io/models/audit_logs_incident_template_deleted_v1.rb
@@ -522,6 +525,7 @@ lib/incident_io/models/audit_logs_incident_type_deleted_v2.rb
 lib/incident_io/models/audit_logs_incident_type_updated_v1.rb
 lib/incident_io/models/audit_logs_incident_type_updated_v2.rb
 lib/incident_io/models/audit_logs_incident_type_updated_v3.rb
+lib/incident_io/models/audit_logs_incident_update_config_updated_v1.rb
 lib/incident_io/models/audit_logs_integration_installed_v1.rb
 lib/incident_io/models/audit_logs_integration_installed_v2.rb
 lib/incident_io/models/audit_logs_integration_uninstalled_v1.rb

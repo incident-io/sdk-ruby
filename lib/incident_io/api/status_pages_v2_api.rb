@@ -825,6 +825,75 @@ module IncidentIo
       return data, status_code, headers
     end
 
+    # ShowStatusPageCustomerPage Status Pages V2
+    # Show one customer's page on a customer status page: its current status, its components, and the incidents and maintenance windows that customer sees.  customer_id is the external_id of the catalog entry that defines the customer's page. That entry belongs to the catalog type the status page is split by. You can't use this endpoint for a customer whose catalog entry has no external_id.  This endpoint requires a valid API key but no specific scopes. Responses can be up to 30 seconds old.
+    # @param status_page_id [String] ID of the customer status page. You can find this by calling the ListStatusPages endpoint.
+    # @param customer_id [String] The external_id of the customer&#39;s catalog entry
+    # @param [Hash] opts the optional parameters
+    # @return [StatusPagesShowStatusPageCustomerPageResultV2]
+    def status_pages_v2_show_status_page_customer_page(status_page_id, customer_id, opts = {})
+      data, _status_code, _headers = status_pages_v2_show_status_page_customer_page_with_http_info(status_page_id, customer_id, opts)
+      data
+    end
+
+    # ShowStatusPageCustomerPage Status Pages V2
+    # Show one customer&#39;s page on a customer status page: its current status, its components, and the incidents and maintenance windows that customer sees.  customer_id is the external_id of the catalog entry that defines the customer&#39;s page. That entry belongs to the catalog type the status page is split by. You can&#39;t use this endpoint for a customer whose catalog entry has no external_id.  This endpoint requires a valid API key but no specific scopes. Responses can be up to 30 seconds old.
+    # @param status_page_id [String] ID of the customer status page. You can find this by calling the ListStatusPages endpoint.
+    # @param customer_id [String] The external_id of the customer&#39;s catalog entry
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(StatusPagesShowStatusPageCustomerPageResultV2, Integer, Hash)>] StatusPagesShowStatusPageCustomerPageResultV2 data, response status code and response headers
+    def status_pages_v2_show_status_page_customer_page_with_http_info(status_page_id, customer_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: StatusPagesV2Api.status_pages_v2_show_status_page_customer_page ...'
+      end
+      # verify the required parameter 'status_page_id' is set
+      if @api_client.config.client_side_validation && status_page_id.nil?
+        fail ArgumentError, "Missing the required parameter 'status_page_id' when calling StatusPagesV2Api.status_pages_v2_show_status_page_customer_page"
+      end
+      # verify the required parameter 'customer_id' is set
+      if @api_client.config.client_side_validation && customer_id.nil?
+        fail ArgumentError, "Missing the required parameter 'customer_id' when calling StatusPagesV2Api.status_pages_v2_show_status_page_customer_page"
+      end
+      # resource path
+      local_var_path = '/v2/status_pages/{status_page_id}/customers/{customer_id}'.sub('{status_page_id}', CGI.escape(status_page_id.to_s)).sub('{customer_id}', CGI.escape(customer_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'StatusPagesShowStatusPageCustomerPageResultV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['BearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"StatusPagesV2Api.status_pages_v2_show_status_page_customer_page",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: StatusPagesV2Api#status_pages_v2_show_status_page_customer_page\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # ShowStatusPageIncident Status Pages V2
     # Show a status page incident.  This endpoint requires a valid API key but no specific scopes.
     # @param status_page_incident_id [String] ID of the status page incident

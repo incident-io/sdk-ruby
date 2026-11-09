@@ -24,6 +24,9 @@ module IncidentIo
     # Whether draft pull requests are reviewed after the change (review, skip)
     attr_accessor :after_draft_reviews
 
+    # Whether a review that finds no issues posts a comment after the change (post, skip)
+    attr_accessor :after_no_issue_reviews
+
     # Whose pull requests are reviewed after the change (everyone, selected_users)
     attr_accessor :after_reviewed_authors
 
@@ -33,10 +36,13 @@ module IncidentIo
     # Whether draft pull requests were reviewed before the change (review, skip)
     attr_accessor :before_draft_reviews
 
+    # Whether a review that found no issues posted a comment before the change (post, skip)
+    attr_accessor :before_no_issue_reviews
+
     # Whose pull requests were reviewed before the change (everyone, selected_users)
     attr_accessor :before_reviewed_authors
 
-    # What the update changed, comma separated (automatic_reviews, draft_reviews, reviewed_authors, reviewed_users)
+    # What the update changed, comma separated (automatic_reviews, draft_reviews, no_issue_reviews, reviewed_authors, reviewed_users)
     attr_accessor :changed
 
     # The users removed from those whose pull requests are reviewed, comma separated
@@ -48,9 +54,11 @@ module IncidentIo
         :'added_user_ids' => :'added_user_ids',
         :'after_automatic_reviews' => :'after_automatic_reviews',
         :'after_draft_reviews' => :'after_draft_reviews',
+        :'after_no_issue_reviews' => :'after_no_issue_reviews',
         :'after_reviewed_authors' => :'after_reviewed_authors',
         :'before_automatic_reviews' => :'before_automatic_reviews',
         :'before_draft_reviews' => :'before_draft_reviews',
+        :'before_no_issue_reviews' => :'before_no_issue_reviews',
         :'before_reviewed_authors' => :'before_reviewed_authors',
         :'changed' => :'changed',
         :'removed_user_ids' => :'removed_user_ids'
@@ -73,9 +81,11 @@ module IncidentIo
         :'added_user_ids' => :'String',
         :'after_automatic_reviews' => :'String',
         :'after_draft_reviews' => :'String',
+        :'after_no_issue_reviews' => :'String',
         :'after_reviewed_authors' => :'String',
         :'before_automatic_reviews' => :'String',
         :'before_draft_reviews' => :'String',
+        :'before_no_issue_reviews' => :'String',
         :'before_reviewed_authors' => :'String',
         :'changed' => :'String',
         :'removed_user_ids' => :'String'
@@ -116,6 +126,10 @@ module IncidentIo
         self.after_draft_reviews = attributes[:'after_draft_reviews']
       end
 
+      if attributes.key?(:'after_no_issue_reviews')
+        self.after_no_issue_reviews = attributes[:'after_no_issue_reviews']
+      end
+
       if attributes.key?(:'after_reviewed_authors')
         self.after_reviewed_authors = attributes[:'after_reviewed_authors']
       end
@@ -126,6 +140,10 @@ module IncidentIo
 
       if attributes.key?(:'before_draft_reviews')
         self.before_draft_reviews = attributes[:'before_draft_reviews']
+      end
+
+      if attributes.key?(:'before_no_issue_reviews')
+        self.before_no_issue_reviews = attributes[:'before_no_issue_reviews']
       end
 
       if attributes.key?(:'before_reviewed_authors')
@@ -181,9 +199,11 @@ module IncidentIo
           added_user_ids == o.added_user_ids &&
           after_automatic_reviews == o.after_automatic_reviews &&
           after_draft_reviews == o.after_draft_reviews &&
+          after_no_issue_reviews == o.after_no_issue_reviews &&
           after_reviewed_authors == o.after_reviewed_authors &&
           before_automatic_reviews == o.before_automatic_reviews &&
           before_draft_reviews == o.before_draft_reviews &&
+          before_no_issue_reviews == o.before_no_issue_reviews &&
           before_reviewed_authors == o.before_reviewed_authors &&
           changed == o.changed &&
           removed_user_ids == o.removed_user_ids
@@ -198,7 +218,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [added_user_ids, after_automatic_reviews, after_draft_reviews, after_reviewed_authors, before_automatic_reviews, before_draft_reviews, before_reviewed_authors, changed, removed_user_ids].hash
+      [added_user_ids, after_automatic_reviews, after_draft_reviews, after_no_issue_reviews, after_reviewed_authors, before_automatic_reviews, before_draft_reviews, before_no_issue_reviews, before_reviewed_authors, changed, removed_user_ids].hash
     end
 
     # Builds the object from hash

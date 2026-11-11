@@ -438,6 +438,9 @@ lib/incident_io/models/audit_logs_escalation_path_updated_v1.rb
 lib/incident_io/models/audit_logs_escalation_path_updated_v2.rb
 lib/incident_io/models/audit_logs_escalation_scrubbed_v1.rb
 lib/incident_io/models/audit_logs_escalation_scrubbed_v2.rb
+lib/incident_io/models/audit_logs_escalation_urgency_created_v1.rb
+lib/incident_io/models/audit_logs_escalation_urgency_deleted_v1.rb
+lib/incident_io/models/audit_logs_escalation_urgency_updated_v1.rb
 lib/incident_io/models/audit_logs_extension_connector_called_v1.rb
 lib/incident_io/models/audit_logs_extension_connector_called_v2.rb
 lib/incident_io/models/audit_logs_extension_connector_called_v3.rb

@@ -16,7 +16,7 @@ require 'time'
 module IncidentIo
   # A pay config sets what someone is paid for being on call: a base rate, plus rules that override it at particular times. An on-call pay report prices each person's shifts against one.  Rules are evaluated in the order they are returned, and the first one that covers a shift wins. Any time no rule covers is paid at the base rate.
   class PayConfigV2 < ApiModelBase
-    # Rate paid for any time no rule covers, in the lowest denomination of the currency
+    # Rate paid for one unit of rate_time_unit, for any time no rule covers, in the lowest denomination of the currency
     attr_accessor :base_rate_cents
 
     attr_accessor :created_at
@@ -36,7 +36,7 @@ module IncidentIo
     # When a published report first priced against this config. Once set, editing the config needs the schedule_pay_configs.update_published scope.
     attr_accessor :published_at
 
-    # The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way.  Known values: `hour`, `day`
+    # The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second.  Known values: `hour`, `day`, `week`
     attr_accessor :rate_time_unit
 
     # IANA timezone this config's rules are interpreted in
@@ -44,7 +44,7 @@ module IncidentIo
 
     attr_accessor :updated_at
 
-    # Rules that apply every week, by day of week and time of day, in evaluation order
+    # Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate_time_unit is week.
     attr_accessor :weekly_rules
 
     # Attribute mapping from ruby-style variable name to JSON key.

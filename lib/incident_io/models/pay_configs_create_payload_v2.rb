@@ -15,7 +15,7 @@ require 'time'
 
 module IncidentIo
   class PayConfigsCreatePayloadV2 < ApiModelBase
-    # Rate paid for any time no rule covers, in the lowest denomination of the currency
+    # Rate paid for one unit of rate_time_unit, for any time no rule covers, in the lowest denomination of the currency
     attr_accessor :base_rate_cents
 
     # Currency this config pays in, in ISO 4217 format
@@ -27,7 +27,7 @@ module IncidentIo
     # Rules that apply over a single window of time
     attr_accessor :one_off_rules
 
-    # The unit of time every rate on this config is quoted per  Known values: `hour`, `day`
+    # The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second.  Known values: `hour`, `day`, `week`
     attr_accessor :rate_time_unit
 
     # IANA timezone this config's rules are interpreted in

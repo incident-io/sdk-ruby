@@ -21,7 +21,7 @@ module IncidentIo
     # The ID of the resource that this relates to
     attr_accessor :resource_id
 
-    # The type of the related resource  Known values: `alert_route`, `alert_source`, `api_key`, `incident_form`, `incident_template`, `escalation_path`, `escalation_path_template`, `policy`, `schedule`, `schedule_sync_target`, `schedule_sync_rule`, `secret`, `status_page_component`, `status_page_structure`, `team_grouping_preference`, `workflow`
+    # The type of the related resource  Known values: `alert_route`, `alert_rule`, `alert_source`, `api_key`, `incident_form`, `incident_template`, `escalation_path`, `escalation_path_template`, `policy`, `schedule`, `schedule_sync_target`, `schedule_sync_rule`, `secret`, `status_page_component`, `status_page_structure`, `team_grouping_preference`, `workflow`
     attr_accessor :resource_type
 
     # Attribute mapping from ruby-style variable name to JSON key.

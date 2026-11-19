@@ -226,7 +226,7 @@ module IncidentIo
     end
 
     # RevokeSessions Users V2
-    # End every active session for a user.  Dashboard sessions stop working on the next request. Mobile, desktop app, and MCP sessions end as well: each registered device is signed out. The user remains active and can sign in again. Personal API keys are not revoked. A user cannot end sessions for someone with a higher role. An API key with this scope can.  Use this during deprovisioning when sessions need to end before a SCIM deactivation arrives. Deactivating a user also ends their sessions.
+    # Sign a user out of everywhere they're logged in: dashboard, plus any mobile app, desktop app, or MCP clients they've connected to via OAuth.  This doesn't deactivate the user. They will be able to log back into those accounts, and it won't revoke any personal API keys they've created.  This is useful in the case of a compromised device or as part of urgent user deactivation.  Note that when a user is deactivated, all of this happens automatically without you having to take an explicit action.
     # @param id [String] Unique identifier of the user
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -236,7 +236,7 @@ module IncidentIo
     end
 
     # RevokeSessions Users V2
-    # End every active session for a user.  Dashboard sessions stop working on the next request. Mobile, desktop app, and MCP sessions end as well: each registered device is signed out. The user remains active and can sign in again. Personal API keys are not revoked. A user cannot end sessions for someone with a higher role. An API key with this scope can.  Use this during deprovisioning when sessions need to end before a SCIM deactivation arrives. Deactivating a user also ends their sessions.
+    # Sign a user out of everywhere they&#39;re logged in: dashboard, plus any mobile app, desktop app, or MCP clients they&#39;ve connected to via OAuth.  This doesn&#39;t deactivate the user. They will be able to log back into those accounts, and it won&#39;t revoke any personal API keys they&#39;ve created.  This is useful in the case of a compromised device or as part of urgent user deactivation.  Note that when a user is deactivated, all of this happens automatically without you having to take an explicit action.
     # @param id [String] Unique identifier of the user
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers

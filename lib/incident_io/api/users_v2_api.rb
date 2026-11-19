@@ -225,6 +225,69 @@ module IncidentIo
       return data, status_code, headers
     end
 
+    # RevokeSessions Users V2
+    # End every active session for a user.  Dashboard sessions stop working on the next request. Mobile, desktop app, and MCP sessions end as well: each registered device is signed out. The user remains active and can sign in again. Personal API keys are not revoked. A user cannot end sessions for someone with a higher role. An API key with this scope can.  Use this during deprovisioning when sessions need to end before a SCIM deactivation arrives. Deactivating a user also ends their sessions.
+    # @param id [String] Unique identifier of the user
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def users_v2_revoke_sessions(id, opts = {})
+      users_v2_revoke_sessions_with_http_info(id, opts)
+      nil
+    end
+
+    # RevokeSessions Users V2
+    # End every active session for a user.  Dashboard sessions stop working on the next request. Mobile, desktop app, and MCP sessions end as well: each registered device is signed out. The user remains active and can sign in again. Personal API keys are not revoked. A user cannot end sessions for someone with a higher role. An API key with this scope can.  Use this during deprovisioning when sessions need to end before a SCIM deactivation arrives. Deactivating a user also ends their sessions.
+    # @param id [String] Unique identifier of the user
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def users_v2_revoke_sessions_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsersV2Api.users_v2_revoke_sessions ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling UsersV2Api.users_v2_revoke_sessions"
+      end
+      # resource path
+      local_var_path = '/v2/users/{id}/actions/revoke_sessions'.sub('{id}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['BearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"UsersV2Api.users_v2_revoke_sessions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsersV2Api#users_v2_revoke_sessions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Show Users V2
     # Get a single user.
     # @param id [String] Unique identifier of the user

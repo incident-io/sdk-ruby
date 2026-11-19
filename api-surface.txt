@@ -654,6 +654,8 @@ api IncidentIo::UsersV2Api#users_v2_list_notification_methods_with_http_info 1
 api IncidentIo::UsersV2Api#users_v2_list_notification_rules 1
 api IncidentIo::UsersV2Api#users_v2_list_notification_rules_with_http_info 1
 api IncidentIo::UsersV2Api#users_v2_list_with_http_info 0
+api IncidentIo::UsersV2Api#users_v2_revoke_sessions 1
+api IncidentIo::UsersV2Api#users_v2_revoke_sessions_with_http_info 1
 api IncidentIo::UsersV2Api#users_v2_show 1
 api IncidentIo::UsersV2Api#users_v2_show_paging_provider 1
 api IncidentIo::UsersV2Api#users_v2_show_paging_provider_with_http_info 1
@@ -4583,6 +4585,12 @@ model IncidentIo::AuditLogsUserRoleMembershipsUpdatedV2 metadata
 model IncidentIo::AuditLogsUserRoleMembershipsUpdatedV2 occurred_at
 model IncidentIo::AuditLogsUserRoleMembershipsUpdatedV2 targets
 model IncidentIo::AuditLogsUserRoleMembershipsUpdatedV2 version
+model IncidentIo::AuditLogsUserSessionsRevokedV1 action
+model IncidentIo::AuditLogsUserSessionsRevokedV1 actor
+model IncidentIo::AuditLogsUserSessionsRevokedV1 context
+model IncidentIo::AuditLogsUserSessionsRevokedV1 occurred_at
+model IncidentIo::AuditLogsUserSessionsRevokedV1 targets
+model IncidentIo::AuditLogsUserSessionsRevokedV1 version
 model IncidentIo::AuditLogsUserUpdatedV1 action
 model IncidentIo::AuditLogsUserUpdatedV1 actor
 model IncidentIo::AuditLogsUserUpdatedV1 context

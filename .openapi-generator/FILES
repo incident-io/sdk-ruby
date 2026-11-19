@@ -799,6 +799,7 @@ lib/incident_io/models/audit_logs_user_reinstated_v1.rb
 lib/incident_io/models/audit_logs_user_reinstated_v2.rb
 lib/incident_io/models/audit_logs_user_role_memberships_updated_v1.rb
 lib/incident_io/models/audit_logs_user_role_memberships_updated_v2.rb
+lib/incident_io/models/audit_logs_user_sessions_revoked_v1.rb
 lib/incident_io/models/audit_logs_user_updated_v1.rb
 lib/incident_io/models/audit_logs_user_updated_v2.rb
 lib/incident_io/models/audit_logs_workflow_created_v1.rb

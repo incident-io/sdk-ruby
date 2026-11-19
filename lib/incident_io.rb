@@ -749,6 +749,7 @@ IncidentIo.autoload :AuditLogsUserReinstatedV1, 'incident_io/models/audit_logs_u
 IncidentIo.autoload :AuditLogsUserReinstatedV2, 'incident_io/models/audit_logs_user_reinstated_v2'
 IncidentIo.autoload :AuditLogsUserRoleMembershipsUpdatedV1, 'incident_io/models/audit_logs_user_role_memberships_updated_v1'
 IncidentIo.autoload :AuditLogsUserRoleMembershipsUpdatedV2, 'incident_io/models/audit_logs_user_role_memberships_updated_v2'
+IncidentIo.autoload :AuditLogsUserSessionsRevokedV1, 'incident_io/models/audit_logs_user_sessions_revoked_v1'
 IncidentIo.autoload :AuditLogsUserUpdatedV1, 'incident_io/models/audit_logs_user_updated_v1'
 IncidentIo.autoload :AuditLogsUserUpdatedV2, 'incident_io/models/audit_logs_user_updated_v2'
 IncidentIo.autoload :AuditLogsWorkflowCreatedV1, 'incident_io/models/audit_logs_workflow_created_v1'

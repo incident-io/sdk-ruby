@@ -20,7 +20,7 @@ module IncidentIo
       @api_client = api_client
     end
     # List IncidentParticipantWorkloads V2
-    # List the participants of an incident with their workload.  We calculate how much time each participant has spent working on the incident, aggregated per participant. Each participant is annotated with their participant type and, if they have left the incident, when they were archived.  Workload is calculated periodically, so values can lag real time and the most recent period may still be filling. The metadata reports the time the figures are calculated up to.  Workload for private incidents is only returned to API keys with the `incident_workloads.view_private` scope.
+    # List the participants of an incident with their workload.  We calculate how much time each participant has spent working on the incident, aggregated per participant. Each participant is annotated with their participant type and, if they have left the incident, when they were archived.  Workload is calculated periodically, so values can lag real time and the most recent period may still be filling. The metadata reports the time the figures are calculated up to.  Workload for private incidents is only returned to API keys with the `incident_workloads.view.private_incidents` scope.
     # @param incident_id [String] Find participant workload for this incident
     # @param [Hash] opts the optional parameters
     # @return [IncidentParticipantWorkloadsListResultV2]
@@ -30,7 +30,7 @@ module IncidentIo
     end
 
     # List IncidentParticipantWorkloads V2
-    # List the participants of an incident with their workload.  We calculate how much time each participant has spent working on the incident, aggregated per participant. Each participant is annotated with their participant type and, if they have left the incident, when they were archived.  Workload is calculated periodically, so values can lag real time and the most recent period may still be filling. The metadata reports the time the figures are calculated up to.  Workload for private incidents is only returned to API keys with the &#x60;incident_workloads.view_private&#x60; scope.
+    # List the participants of an incident with their workload.  We calculate how much time each participant has spent working on the incident, aggregated per participant. Each participant is annotated with their participant type and, if they have left the incident, when they were archived.  Workload is calculated periodically, so values can lag real time and the most recent period may still be filling. The metadata reports the time the figures are calculated up to.  Workload for private incidents is only returned to API keys with the &#x60;incident_workloads.view.private_incidents&#x60; scope.
     # @param incident_id [String] Find participant workload for this incident
     # @param [Hash] opts the optional parameters
     # @return [Array<(IncidentParticipantWorkloadsListResultV2, Integer, Hash)>] IncidentParticipantWorkloadsListResultV2 data, response status code and response headers

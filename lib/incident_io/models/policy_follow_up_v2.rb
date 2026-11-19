@@ -21,7 +21,7 @@ module IncidentIo
     # Conditions a follow-up must satisfy to be compliant, e.g. 'is exported to Jira'
     attr_accessor :requirements
 
-    # Requires the policies.run_on_private scope
+    # Requires the policies.run.private_incidents scope
     attr_accessor :run_on_private_incidents
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -100,7 +100,7 @@ module IncidentIo
     end
 
     # ListNotificationMethods Users V2
-    # List notification methods for a user. Phone numbers are partially redacted unless the API key holds the notification_methods.view_unredacted scope.
+    # List notification methods for a user. Phone numbers are partially redacted unless the API key holds the unredacted_notification_methods.view scope.
     # @param user_id [String] The ID of the user whose notification methods you want to list.
     # @param [Hash] opts the optional parameters
     # @return [UsersListNotificationMethodsResultV2]
@@ -110,7 +110,7 @@ module IncidentIo
     end
 
     # ListNotificationMethods Users V2
-    # List notification methods for a user. Phone numbers are partially redacted unless the API key holds the notification_methods.view_unredacted scope.
+    # List notification methods for a user. Phone numbers are partially redacted unless the API key holds the unredacted_notification_methods.view scope.
     # @param user_id [String] The ID of the user whose notification methods you want to list.
     # @param [Hash] opts the optional parameters
     # @return [Array<(UsersListNotificationMethodsResultV2, Integer, Hash)>] UsersListNotificationMethodsResultV2 data, response status code and response headers

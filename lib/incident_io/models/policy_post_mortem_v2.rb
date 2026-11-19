@@ -21,7 +21,7 @@ module IncidentIo
     # Conditions a post-mortem must satisfy to be compliant
     attr_accessor :requirements
 
-    # Requires the policies.run_on_private scope
+    # Requires the policies.run.private_incidents scope
     attr_accessor :run_on_private_incidents
 
     # Attribute mapping from ruby-style variable name to JSON key.

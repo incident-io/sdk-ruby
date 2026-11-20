@@ -3123,6 +3123,12 @@ model IncidentIo::AuditLogsNudgeUpdatedV2 context
 model IncidentIo::AuditLogsNudgeUpdatedV2 occurred_at
 model IncidentIo::AuditLogsNudgeUpdatedV2 targets
 model IncidentIo::AuditLogsNudgeUpdatedV2 version
+model IncidentIo::AuditLogsOauthSessionRevokedV1 action
+model IncidentIo::AuditLogsOauthSessionRevokedV1 actor
+model IncidentIo::AuditLogsOauthSessionRevokedV1 context
+model IncidentIo::AuditLogsOauthSessionRevokedV1 occurred_at
+model IncidentIo::AuditLogsOauthSessionRevokedV1 targets
+model IncidentIo::AuditLogsOauthSessionRevokedV1 version
 model IncidentIo::AuditLogsOnCallNotificationMethodCreatedV1 action
 model IncidentIo::AuditLogsOnCallNotificationMethodCreatedV1 actor
 model IncidentIo::AuditLogsOnCallNotificationMethodCreatedV1 context

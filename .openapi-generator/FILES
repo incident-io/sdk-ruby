@@ -570,6 +570,7 @@ lib/incident_io/models/audit_logs_nudge_deleted_v1.rb
 lib/incident_io/models/audit_logs_nudge_deleted_v2.rb
 lib/incident_io/models/audit_logs_nudge_updated_v1.rb
 lib/incident_io/models/audit_logs_nudge_updated_v2.rb
+lib/incident_io/models/audit_logs_oauth_session_revoked_v1.rb
 lib/incident_io/models/audit_logs_on_call_notification_method_created_v1.rb
 lib/incident_io/models/audit_logs_on_call_notification_method_created_v2.rb
 lib/incident_io/models/audit_logs_on_call_notification_method_created_v3.rb

@@ -520,6 +520,7 @@ IncidentIo.autoload :AuditLogsNudgeDeletedV1, 'incident_io/models/audit_logs_nud
 IncidentIo.autoload :AuditLogsNudgeDeletedV2, 'incident_io/models/audit_logs_nudge_deleted_v2'
 IncidentIo.autoload :AuditLogsNudgeUpdatedV1, 'incident_io/models/audit_logs_nudge_updated_v1'
 IncidentIo.autoload :AuditLogsNudgeUpdatedV2, 'incident_io/models/audit_logs_nudge_updated_v2'
+IncidentIo.autoload :AuditLogsOauthSessionRevokedV1, 'incident_io/models/audit_logs_oauth_session_revoked_v1'
 IncidentIo.autoload :AuditLogsOnCallNotificationMethodCreatedV1, 'incident_io/models/audit_logs_on_call_notification_method_created_v1'
 IncidentIo.autoload :AuditLogsOnCallNotificationMethodCreatedV2, 'incident_io/models/audit_logs_on_call_notification_method_created_v2'
 IncidentIo.autoload :AuditLogsOnCallNotificationMethodCreatedV3, 'incident_io/models/audit_logs_on_call_notification_method_created_v3'

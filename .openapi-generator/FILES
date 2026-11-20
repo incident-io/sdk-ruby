@@ -296,6 +296,8 @@ lib/incident_io/models/audit_log_investigation_trigger_metadata_v2.rb
 lib/incident_io/models/audit_log_ip_allowlist_updated_metadata_v2.rb
 lib/incident_io/models/audit_log_microsoft_entra_tenant_linked_metadata_v2.rb
 lib/incident_io/models/audit_log_mobile_intune_enabled_setting_updated_metadata_v2.rb
+lib/incident_io/models/audit_log_mobile_key_archived_metadata_v2.rb
+lib/incident_io/models/audit_log_mobile_key_created_metadata_v2.rb
 lib/incident_io/models/audit_log_on_call_notification_method_metadata_v2.rb
 lib/incident_io/models/audit_log_on_call_notification_pause_metadata_v2.rb
 lib/incident_io/models/audit_log_on_call_upsell_requested_metadata_v2.rb
@@ -564,6 +566,8 @@ lib/incident_io/models/audit_logs_microsoft_entra_tenant_linked_v1.rb
 lib/incident_io/models/audit_logs_microsoft_entra_tenant_linked_v2.rb
 lib/incident_io/models/audit_logs_mobile_intune_enabled_setting_updated_v1.rb
 lib/incident_io/models/audit_logs_mobile_intune_enabled_setting_updated_v2.rb
+lib/incident_io/models/audit_logs_mobile_key_archived_v1.rb
+lib/incident_io/models/audit_logs_mobile_key_created_v1.rb
 lib/incident_io/models/audit_logs_nudge_created_v1.rb
 lib/incident_io/models/audit_logs_nudge_created_v2.rb
 lib/incident_io/models/audit_logs_nudge_deleted_v1.rb

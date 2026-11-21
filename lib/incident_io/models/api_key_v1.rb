@@ -23,6 +23,9 @@ module IncidentIo
 
     attr_accessor :creator
 
+    # When this API key stops working. If it's not set, the key never expires.
+    attr_accessor :expires_at
+
     # Unique identifier for this API key
     attr_accessor :id
 
@@ -50,6 +53,7 @@ module IncidentIo
         :'comments' => :'comments',
         :'created_at' => :'created_at',
         :'creator' => :'creator',
+        :'expires_at' => :'expires_at',
         :'id' => :'id',
         :'last_used_at' => :'last_used_at',
         :'name' => :'name',
@@ -76,6 +80,7 @@ module IncidentIo
         :'comments' => :'String',
         :'created_at' => :'Time',
         :'creator' => :'ActorV1',
+        :'expires_at' => :'Time',
         :'id' => :'String',
         :'last_used_at' => :'Time',
         :'name' => :'String',
@@ -122,6 +127,10 @@ module IncidentIo
         self.creator = attributes[:'creator']
       else
         self.creator = nil
+      end
+
+      if attributes.key?(:'expires_at')
+        self.expires_at = attributes[:'expires_at']
       end
 
       if attributes.key?(:'id')
@@ -344,6 +353,7 @@ module IncidentIo
           comments == o.comments &&
           created_at == o.created_at &&
           creator == o.creator &&
+          expires_at == o.expires_at &&
           id == o.id &&
           last_used_at == o.last_used_at &&
           name == o.name &&
@@ -362,7 +372,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [comments, created_at, creator, id, last_used_at, name, roles, team_ids, team_roles, token_last_issued_at].hash
+      [comments, created_at, creator, expires_at, id, last_used_at, name, roles, team_ids, team_roles, token_last_issued_at].hash
     end
 
     # Builds the object from hash

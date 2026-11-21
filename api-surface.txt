@@ -702,6 +702,7 @@ model IncidentIo::APIKeyTeamRoleV1 name
 model IncidentIo::APIKeyV1 comments
 model IncidentIo::APIKeyV1 created_at
 model IncidentIo::APIKeyV1 creator
+model IncidentIo::APIKeyV1 expires_at
 model IncidentIo::APIKeyV1 id
 model IncidentIo::APIKeyV1 last_used_at
 model IncidentIo::APIKeyV1 name
@@ -710,6 +711,7 @@ model IncidentIo::APIKeyV1 team_ids
 model IncidentIo::APIKeyV1 team_roles
 model IncidentIo::APIKeyV1 token_last_issued_at
 model IncidentIo::APIKeysCreatePayloadV1 comments
+model IncidentIo::APIKeysCreatePayloadV1 expires_at
 model IncidentIo::APIKeysCreatePayloadV1 name
 model IncidentIo::APIKeysCreatePayloadV1 role_names
 model IncidentIo::APIKeysCreatePayloadV1 team_ids
@@ -718,6 +720,7 @@ model IncidentIo::APIKeysCreateResultV1 api_key
 model IncidentIo::APIKeysCreateResultV1 token
 model IncidentIo::APIKeysListResultV1 api_keys
 model IncidentIo::APIKeysListResultV1 pagination_meta
+model IncidentIo::APIKeysRotatePayloadV1 expires_at
 model IncidentIo::APIKeysRotatePayloadV1 grace_period_minutes
 model IncidentIo::APIKeysRotateResultV1 api_key
 model IncidentIo::APIKeysRotateResultV1 token

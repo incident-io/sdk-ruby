@@ -15,12 +15,16 @@ require 'time'
 
 module IncidentIo
   class APIKeysRotatePayloadV1 < ApiModelBase
+    # A new expiry for the API key. Leave it blank to keep its current expiry. It must be in the future and within your organization's maximum lifetime for API keys.
+    attr_accessor :expires_at
+
     # How many minutes to keep the old access token alive.
     attr_accessor :grace_period_minutes
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'expires_at' => :'expires_at',
         :'grace_period_minutes' => :'grace_period_minutes'
       }
     end
@@ -38,6 +42,7 @@ module IncidentIo
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'expires_at' => :'Time',
         :'grace_period_minutes' => :'Integer'
       }
     end
@@ -63,6 +68,10 @@ module IncidentIo
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'expires_at')
+        self.expires_at = attributes[:'expires_at']
+      end
 
       if attributes.key?(:'grace_period_minutes')
         self.grace_period_minutes = attributes[:'grace_period_minutes']
@@ -124,6 +133,7 @@ module IncidentIo
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          expires_at == o.expires_at &&
           grace_period_minutes == o.grace_period_minutes
     end
 
@@ -136,7 +146,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [grace_period_minutes].hash
+      [expires_at, grace_period_minutes].hash
     end
 
     # Builds the object from hash

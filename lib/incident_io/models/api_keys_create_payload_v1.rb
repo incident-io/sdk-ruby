@@ -18,6 +18,9 @@ module IncidentIo
     # Freeform notes about the API key
     attr_accessor :comments
 
+    # When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
+    attr_accessor :expires_at
+
     # Human-readable name for the new API key
     attr_accessor :name
 
@@ -34,6 +37,7 @@ module IncidentIo
     def self.attribute_map
       {
         :'comments' => :'comments',
+        :'expires_at' => :'expires_at',
         :'name' => :'name',
         :'role_names' => :'role_names',
         :'team_ids' => :'team_ids',
@@ -55,6 +59,7 @@ module IncidentIo
     def self.openapi_types
       {
         :'comments' => :'String',
+        :'expires_at' => :'Time',
         :'name' => :'String',
         :'role_names' => :'Array<String>',
         :'team_ids' => :'Array<String>',
@@ -86,6 +91,10 @@ module IncidentIo
 
       if attributes.key?(:'comments')
         self.comments = attributes[:'comments']
+      end
+
+      if attributes.key?(:'expires_at')
+        self.expires_at = attributes[:'expires_at']
       end
 
       if attributes.key?(:'name')
@@ -248,6 +257,7 @@ module IncidentIo
       return true if self.equal?(o)
       self.class == o.class &&
           comments == o.comments &&
+          expires_at == o.expires_at &&
           name == o.name &&
           role_names == o.role_names &&
           team_ids == o.team_ids &&
@@ -263,7 +273,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [comments, name, role_names, team_ids, team_role_names].hash
+      [comments, expires_at, name, role_names, team_ids, team_role_names].hash
     end
 
     # Builds the object from hash

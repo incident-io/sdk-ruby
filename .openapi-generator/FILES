@@ -274,6 +274,8 @@ lib/incident_io/models/audit_log_actor_metadata_v2.rb
 lib/incident_io/models/audit_log_actor_v2.rb
 lib/incident_io/models/audit_log_announcement_post_template_owning_teams_metadata_v2.rb
 lib/incident_io/models/audit_log_announcement_rule_metadata_v2.rb
+lib/incident_io/models/audit_log_api_key_expiry_metadata_v2.rb
+lib/incident_io/models/audit_log_api_key_expiry_policy_updated_metadata_v2.rb
 lib/incident_io/models/audit_log_catalog_attribute_updated_metadata_v2.rb
 lib/incident_io/models/audit_log_catalog_attribute_updated_metadata_v2_v2.rb
 lib/incident_io/models/audit_log_code_repository_accessed_metadata_v2.rb
@@ -388,10 +390,13 @@ lib/incident_io/models/audit_logs_announcement_rule_updated_v2.rb
 lib/incident_io/models/audit_logs_announcement_rule_updated_v3.rb
 lib/incident_io/models/audit_logs_api_key_created_v1.rb
 lib/incident_io/models/audit_logs_api_key_created_v2.rb
+lib/incident_io/models/audit_logs_api_key_created_v3.rb
 lib/incident_io/models/audit_logs_api_key_deleted_v1.rb
 lib/incident_io/models/audit_logs_api_key_deleted_v2.rb
+lib/incident_io/models/audit_logs_api_key_expiry_policy_updated_v1.rb
 lib/incident_io/models/audit_logs_api_key_rotated_v1.rb
 lib/incident_io/models/audit_logs_api_key_rotated_v2.rb
+lib/incident_io/models/audit_logs_api_key_rotated_v3.rb
 lib/incident_io/models/audit_logs_api_key_updated_v1.rb
 lib/incident_io/models/audit_logs_api_key_updated_v2.rb
 lib/incident_io/models/audit_logs_catalog_entry_attribute_updated_v1.rb
@@ -792,6 +797,7 @@ lib/incident_io/models/audit_logs_twilio_connection_updated_v1.rb
 lib/incident_io/models/audit_logs_twilio_connection_updated_v2.rb
 lib/incident_io/models/audit_logs_user_api_key_created_v1.rb
 lib/incident_io/models/audit_logs_user_api_key_created_v2.rb
+lib/incident_io/models/audit_logs_user_api_key_created_v3.rb
 lib/incident_io/models/audit_logs_user_api_key_deleted_v1.rb
 lib/incident_io/models/audit_logs_user_api_key_deleted_v2.rb
 lib/incident_io/models/audit_logs_user_created_v1.rb

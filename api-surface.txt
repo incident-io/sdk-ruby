@@ -5671,6 +5671,7 @@ model IncidentIo::GlossaryEntryV2 updated_at
 model IncidentIo::GroupingKeyV2 reference
 model IncidentIo::GroupingKeyV3 reference
 model IncidentIo::GroupingSettingsV3 ai_enabled
+model IncidentIo::GroupingSettingsV3 ai_instructions
 model IncidentIo::GroupingSettingsV3 enabled
 model IncidentIo::GroupingSettingsV3 grouping_keys
 model IncidentIo::GroupingSettingsV3 window_seconds

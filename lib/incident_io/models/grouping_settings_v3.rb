@@ -18,6 +18,9 @@ module IncidentIo
     # Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
     attr_accessor :ai_enabled
 
+    # Optional instructions the model follows when AI groups alerts on this route, such as how the systems you run relate to each other. Up to 2000 characters.
+    attr_accessor :ai_instructions
+
     # Whether grouping is enabled
     attr_accessor :enabled
 
@@ -34,6 +37,7 @@ module IncidentIo
     def self.attribute_map
       {
         :'ai_enabled' => :'ai_enabled',
+        :'ai_instructions' => :'ai_instructions',
         :'enabled' => :'enabled',
         :'grouping_keys' => :'grouping_keys',
         :'window_seconds' => :'window_seconds',
@@ -55,6 +59,7 @@ module IncidentIo
     def self.openapi_types
       {
         :'ai_enabled' => :'Boolean',
+        :'ai_instructions' => :'String',
         :'enabled' => :'Boolean',
         :'grouping_keys' => :'Array<GroupingKeyV3>',
         :'window_seconds' => :'Integer',
@@ -86,6 +91,10 @@ module IncidentIo
 
       if attributes.key?(:'ai_enabled')
         self.ai_enabled = attributes[:'ai_enabled']
+      end
+
+      if attributes.key?(:'ai_instructions')
+        self.ai_instructions = attributes[:'ai_instructions']
       end
 
       if attributes.key?(:'enabled')
@@ -173,6 +182,7 @@ module IncidentIo
       return true if self.equal?(o)
       self.class == o.class &&
           ai_enabled == o.ai_enabled &&
+          ai_instructions == o.ai_instructions &&
           enabled == o.enabled &&
           grouping_keys == o.grouping_keys &&
           window_seconds == o.window_seconds &&
@@ -188,7 +198,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ai_enabled, enabled, grouping_keys, window_seconds, window_type].hash
+      [ai_enabled, ai_instructions, enabled, grouping_keys, window_seconds, window_type].hash
     end
 
     # Builds the object from hash

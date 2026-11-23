@@ -1129,7 +1129,9 @@ lib/incident_io/models/incident_memberships_create_payload_v1.rb
 lib/incident_io/models/incident_memberships_create_result_v1.rb
 lib/incident_io/models/incident_memberships_revoke_payload_v1.rb
 lib/incident_io/models/incident_participant_v2.rb
+lib/incident_io/models/incident_participant_workload_hour_v2.rb
 lib/incident_io/models/incident_participant_workload_v2.rb
+lib/incident_io/models/incident_participant_workloads_list_hours_result_v2.rb
 lib/incident_io/models/incident_participant_workloads_list_result_v2.rb
 lib/incident_io/models/incident_participants_list_result_v2.rb
 lib/incident_io/models/incident_participants_v2.rb

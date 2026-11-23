@@ -82,5 +82,85 @@ module IncidentIo
       end
       return data, status_code, headers
     end
+
+    # ListHours IncidentParticipantWorkloads V2
+    # List each user's workload on each incident, hour by hour, newest first.  Each row is the time one user spent on one incident in one hour. Sum the rows to get any total you need, such as the time each person spent on incidents last month. Rows come newest first. To cover a period, set `before` to its end, then follow `pagination_meta.after` until you reach rows older than its start. A page can hold fewer rows than `page_size`, so keep following `after` until it is absent.  Workload is calculated periodically, so values can lag real time and the most recent period may still be filling. The metadata reports the time the figures are calculated up to.  Workload on private incidents is only included for API keys with the `incident_workloads.view.private_incidents` scope.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page_size Integer number of records to return (default to 25)
+    # @option opts [String] :after The cursor from a previous response&#39;s &#x60;pagination_meta.after&#x60;. Returns the rows older than that page.
+    # @option opts [Time] :before Only return hours that start before this time
+    # @option opts [String] :incident_id Only return workload on this incident
+    # @option opts [String] :user_id Only return workload for this user
+    # @return [IncidentParticipantWorkloadsListHoursResultV2]
+    def incident_participant_workloads_v2_list_hours(opts = {})
+      data, _status_code, _headers = incident_participant_workloads_v2_list_hours_with_http_info(opts)
+      data
+    end
+
+    # ListHours IncidentParticipantWorkloads V2
+    # List each user&#39;s workload on each incident, hour by hour, newest first.  Each row is the time one user spent on one incident in one hour. Sum the rows to get any total you need, such as the time each person spent on incidents last month. Rows come newest first. To cover a period, set &#x60;before&#x60; to its end, then follow &#x60;pagination_meta.after&#x60; until you reach rows older than its start. A page can hold fewer rows than &#x60;page_size&#x60;, so keep following &#x60;after&#x60; until it is absent.  Workload is calculated periodically, so values can lag real time and the most recent period may still be filling. The metadata reports the time the figures are calculated up to.  Workload on private incidents is only included for API keys with the &#x60;incident_workloads.view.private_incidents&#x60; scope.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page_size Integer number of records to return (default to 25)
+    # @option opts [String] :after The cursor from a previous response&#39;s &#x60;pagination_meta.after&#x60;. Returns the rows older than that page.
+    # @option opts [Time] :before Only return hours that start before this time
+    # @option opts [String] :incident_id Only return workload on this incident
+    # @option opts [String] :user_id Only return workload for this user
+    # @return [Array<(IncidentParticipantWorkloadsListHoursResultV2, Integer, Hash)>] IncidentParticipantWorkloadsListHoursResultV2 data, response status code and response headers
+    def incident_participant_workloads_v2_list_hours_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IncidentParticipantWorkloadsV2Api.incident_participant_workloads_v2_list_hours ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 250
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling IncidentParticipantWorkloadsV2Api.incident_participant_workloads_v2_list_hours, must be smaller than or equal to 250.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling IncidentParticipantWorkloadsV2Api.incident_participant_workloads_v2_list_hours, must be greater than or equal to 1.'
+      end
+
+      # resource path
+      local_var_path = '/v2/incident_participant_workload_hours'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
+      query_params[:'after'] = opts[:'after'] if !opts[:'after'].nil?
+      query_params[:'before'] = opts[:'before'] if !opts[:'before'].nil?
+      query_params[:'incident_id'] = opts[:'incident_id'] if !opts[:'incident_id'].nil?
+      query_params[:'user_id'] = opts[:'user_id'] if !opts[:'user_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentParticipantWorkloadsListHoursResultV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['BearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"IncidentParticipantWorkloadsV2Api.incident_participant_workloads_v2_list_hours",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IncidentParticipantWorkloadsV2Api#incident_participant_workloads_v2_list_hours\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

@@ -24,7 +24,7 @@ module IncidentIo
     # The device platform, such as ios or android
     attr_accessor :platform
 
-    # Why the sign-in ended, such as logged_out, user_deleted, user_has_been_deactivated, sessions_revoked, device_unregistered or duplicate_token
+    # Why the sign-in ended, such as logged_out, user_deleted, user_has_been_deactivated, sessions_revoked, admin_revoked, device_unregistered or duplicate_token
     attr_accessor :reason
 
     # Attribute mapping from ruby-style variable name to JSON key.

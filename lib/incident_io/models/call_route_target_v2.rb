@@ -28,7 +28,7 @@ module IncidentIo
     # Whether a call route target is a user or a schedule  Known values: `user`, `schedule`
     attr_accessor :type
 
-    # The urgency of this escalation path target  Known values: `high`, `low`
+    # The interruption level we notify this target at: high or low  Known values: `high`, `low`
     attr_accessor :urgency
 
     # Attribute mapping from ruby-style variable name to JSON key.

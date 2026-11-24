@@ -27,7 +27,7 @@ module IncidentIo
     # Controls what type of entity this target identifies, such as EscalationPolicy or User  Known values: `schedule`, `user`, `slack_channel`, `msteams_channel`
     attr_accessor :type
 
-    # The urgency of this escalation path target  Known values: `high`, `low`
+    # The interruption level we notify this target at: high or low  Known values: `high`, `low`
     attr_accessor :urgency
 
     # Attribute mapping from ruby-style variable name to JSON key.

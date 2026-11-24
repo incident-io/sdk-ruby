@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module IncidentIo
-  class EscalationsUpdatePathResultV2 < ApiModelBase
+  class EscalationPathsCreateResultV2 < ApiModelBase
     attr_accessor :escalation_path
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -51,14 +51,14 @@ module IncidentIo
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `IncidentIo::EscalationsUpdatePathResultV2` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `IncidentIo::EscalationPathsCreateResultV2` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `IncidentIo::EscalationsUpdatePathResultV2`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `IncidentIo::EscalationPathsCreateResultV2`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }

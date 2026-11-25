@@ -17,6 +17,7 @@ module IncidentIo
   class UserWithRolesV2 < ApiModelBase
     attr_accessor :base_role
 
+    # The custom access groups the user is in
     attr_accessor :custom_roles
 
     # Email address of the user.
@@ -67,8 +68,8 @@ module IncidentIo
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'base_role' => :'RBACRoleV2',
-        :'custom_roles' => :'Array<RBACRoleV2>',
+        :'base_role' => :'AccessGroupV2',
+        :'custom_roles' => :'Array<AccessGroupV2>',
         :'email' => :'String',
         :'id' => :'String',
         :'is_active' => :'Boolean',

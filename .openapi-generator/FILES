@@ -72,6 +72,7 @@ lib/incident_io/api_client.rb
 lib/incident_io/api_error.rb
 lib/incident_io/api_model_base.rb
 lib/incident_io/configuration.rb
+lib/incident_io/models/access_group_v2.rb
 lib/incident_io/models/action_v1.rb
 lib/incident_io/models/action_v2.rb
 lib/incident_io/models/action_v3.rb
@@ -1348,7 +1349,6 @@ lib/incident_io/models/postmortem_documents_show_content_result_v1.rb
 lib/incident_io/models/postmortem_documents_show_result_v1.rb
 lib/incident_io/models/postmortem_documents_update_status_payload_v1.rb
 lib/incident_io/models/postmortem_documents_update_status_result_v1.rb
-lib/incident_io/models/rbac_role_v2.rb
 lib/incident_io/models/retrospective_incident_options_v2.rb
 lib/incident_io/models/returns_meta_v2.rb
 lib/incident_io/models/returns_meta_v3.rb

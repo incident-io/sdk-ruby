@@ -14,18 +14,22 @@ require 'date'
 require 'time'
 
 module IncidentIo
-  class RBACRoleV2 < ApiModelBase
-    # Description of the purpose for the RBAC role
+  # An access group is a named group of users. Access grants give a group its privileges, and every member of the group gets them.  Every organisation has base groups (Owner, Admin and Standard), which can be listed and granted privileges but not changed or deleted. Membership is managed in the dashboard or through SCIM, not through this API.
+  class AccessGroupV2 < ApiModelBase
+    # Optional description of who belongs in this group
     attr_accessor :description
 
-    # Unique identifier of the RBAC role
+    # Unique identifier for this access group
     attr_accessor :id
 
-    # Name of the RBAC role
+    # Human-readable name, unique within the organisation
     attr_accessor :name
 
-    # Unique human-readable slug for the RBAC role
+    # Stable identifier, unique within the organisation. Base groups use owner, admin and standard. Generated from the name when omitted on create, and cannot be changed later.
     attr_accessor :slug
+
+    # base for the groups every organisation has, which cannot be changed or deleted, or custom for groups you create  Known values: `base`, `custom`
+    attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -33,7 +37,8 @@ module IncidentIo
         :'description' => :'description',
         :'id' => :'id',
         :'name' => :'name',
-        :'slug' => :'slug'
+        :'slug' => :'slug',
+        :'type' => :'type'
       }
     end
 
@@ -53,7 +58,8 @@ module IncidentIo
         :'description' => :'String',
         :'id' => :'String',
         :'name' => :'String',
-        :'slug' => :'String'
+        :'slug' => :'String',
+        :'type' => :'String'
       }
     end
 
@@ -67,14 +73,14 @@ module IncidentIo
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `IncidentIo::RBACRoleV2` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `IncidentIo::AccessGroupV2` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `IncidentIo::RBACRoleV2`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `IncidentIo::AccessGroupV2`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -100,6 +106,12 @@ module IncidentIo
       else
         self.slug = nil
       end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      else
+        self.type = nil
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -119,6 +131,10 @@ module IncidentIo
         invalid_properties.push('invalid value for "slug", slug cannot be nil.')
       end
 
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -129,6 +145,7 @@ module IncidentIo
       return false if @id.nil?
       return false if @name.nil?
       return false if @slug.nil?
+      return false if @type.nil?
       true
     end
 
@@ -162,6 +179,16 @@ module IncidentIo
       @slug = slug
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] type Value to be assigned
+    def type=(type)
+      if type.nil?
+        fail ArgumentError, 'type cannot be nil'
+      end
+
+      @type = type
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -170,7 +197,8 @@ module IncidentIo
           description == o.description &&
           id == o.id &&
           name == o.name &&
-          slug == o.slug
+          slug == o.slug &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -182,7 +210,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, id, name, slug].hash
+      [description, id, name, slug, type].hash
     end
 
     # Builds the object from hash

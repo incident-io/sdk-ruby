@@ -733,6 +733,11 @@ model IncidentIo::APIKeysUpdatePayloadV1 role_names
 model IncidentIo::APIKeysUpdatePayloadV1 team_ids
 model IncidentIo::APIKeysUpdatePayloadV1 team_role_names
 model IncidentIo::APIKeysUpdateResultV1 api_key
+model IncidentIo::AccessGroupV2 description
+model IncidentIo::AccessGroupV2 id
+model IncidentIo::AccessGroupV2 name
+model IncidentIo::AccessGroupV2 slug
+model IncidentIo::AccessGroupV2 type
 model IncidentIo::ActionV1 assignee
 model IncidentIo::ActionV1 completed_at
 model IncidentIo::ActionV1 created_at
@@ -6583,10 +6588,6 @@ model IncidentIo::PostmortemDocumentsShowContentResultV1 markdown
 model IncidentIo::PostmortemDocumentsShowResultV1 postmortem_document
 model IncidentIo::PostmortemDocumentsUpdateStatusPayloadV1 status
 model IncidentIo::PostmortemDocumentsUpdateStatusResultV1 postmortem_document
-model IncidentIo::RBACRoleV2 description
-model IncidentIo::RBACRoleV2 id
-model IncidentIo::RBACRoleV2 name
-model IncidentIo::RBACRoleV2 slug
 model IncidentIo::RetrospectiveIncidentOptionsV2 external_id
 model IncidentIo::RetrospectiveIncidentOptionsV2 postmortem_document_url
 model IncidentIo::RetrospectiveIncidentOptionsV2 slack_channel_id

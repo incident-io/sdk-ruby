@@ -1313,6 +1313,7 @@ model IncidentIo::AlertSlimV2 source_url
 model IncidentIo::AlertSlimV2 status
 model IncidentIo::AlertSlimV2 title
 model IncidentIo::AlertSlimV2 updated_at
+model IncidentIo::AlertSourceAlertmanagerOptionsV2 one_alert_per_group
 model IncidentIo::AlertSourceAzureDevopsOptionsV2 project_ids
 model IncidentIo::AlertSourceEmailOptionsPayloadV2 redactions
 model IncidentIo::AlertSourceEmailOptionsPayloadV2 transform_expression
@@ -1331,6 +1332,7 @@ model IncidentIo::AlertSourceHeartbeatOptionsV2 ping_url
 model IncidentIo::AlertSourceJiraOptionsV2 project_ids
 model IncidentIo::AlertSourceRateLimitShardingV2 rate_limit_shard_key_path
 model IncidentIo::AlertSourceV2 alert_events_url
+model IncidentIo::AlertSourceV2 alertmanager_options
 model IncidentIo::AlertSourceV2 auto_resolve_incident_alerts
 model IncidentIo::AlertSourceV2 auto_resolve_timeout_minutes
 model IncidentIo::AlertSourceV2 azure_devops_options
@@ -1347,6 +1349,7 @@ model IncidentIo::AlertSourceV2 rate_limit_sharding
 model IncidentIo::AlertSourceV2 secret_token
 model IncidentIo::AlertSourceV2 source_type
 model IncidentIo::AlertSourceV2 template
+model IncidentIo::AlertSourcesCreatePayloadV2 alertmanager_options
 model IncidentIo::AlertSourcesCreatePayloadV2 auto_resolve_incident_alerts
 model IncidentIo::AlertSourcesCreatePayloadV2 auto_resolve_timeout_minutes
 model IncidentIo::AlertSourcesCreatePayloadV2 azure_devops_options
@@ -1364,6 +1367,7 @@ model IncidentIo::AlertSourcesCreatePayloadV2 template
 model IncidentIo::AlertSourcesCreateResultV2 alert_source
 model IncidentIo::AlertSourcesListResultV2 alert_sources
 model IncidentIo::AlertSourcesShowResultV2 alert_source
+model IncidentIo::AlertSourcesUpdatePayloadV2 alertmanager_options
 model IncidentIo::AlertSourcesUpdatePayloadV2 auto_resolve_incident_alerts
 model IncidentIo::AlertSourcesUpdatePayloadV2 auto_resolve_timeout_minutes
 model IncidentIo::AlertSourcesUpdatePayloadV2 azure_devops_options

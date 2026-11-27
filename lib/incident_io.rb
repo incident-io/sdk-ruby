@@ -187,6 +187,7 @@ IncidentIo.autoload :AlertRulesShowResultV3, 'incident_io/models/alert_rules_sho
 IncidentIo.autoload :AlertRulesUpdatePayloadV3, 'incident_io/models/alert_rules_update_payload_v3'
 IncidentIo.autoload :AlertRulesUpdateResultV3, 'incident_io/models/alert_rules_update_result_v3'
 IncidentIo.autoload :AlertSlimV2, 'incident_io/models/alert_slim_v2'
+IncidentIo.autoload :AlertSourceAlertmanagerOptionsV2, 'incident_io/models/alert_source_alertmanager_options_v2'
 IncidentIo.autoload :AlertSourceAzureDevopsOptionsV2, 'incident_io/models/alert_source_azure_devops_options_v2'
 IncidentIo.autoload :AlertSourceEmailOptionsPayloadV2, 'incident_io/models/alert_source_email_options_payload_v2'
 IncidentIo.autoload :AlertSourceEmailOptionsV2, 'incident_io/models/alert_source_email_options_v2'

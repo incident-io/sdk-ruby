@@ -15,6 +15,8 @@ require 'time'
 
 module IncidentIo
   class AlertSourcesUpdatePayloadV2 < ApiModelBase
+    attr_accessor :alertmanager_options
+
     # Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
     attr_accessor :auto_resolve_incident_alerts
 
@@ -53,6 +55,7 @@ module IncidentIo
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'alertmanager_options' => :'alertmanager_options',
         :'auto_resolve_incident_alerts' => :'auto_resolve_incident_alerts',
         :'auto_resolve_timeout_minutes' => :'auto_resolve_timeout_minutes',
         :'azure_devops_options' => :'azure_devops_options',
@@ -83,6 +86,7 @@ module IncidentIo
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'alertmanager_options' => :'AlertSourceAlertmanagerOptionsV2',
         :'auto_resolve_incident_alerts' => :'Boolean',
         :'auto_resolve_timeout_minutes' => :'Integer',
         :'azure_devops_options' => :'AlertSourceAzureDevopsOptionsV2',
@@ -121,6 +125,10 @@ module IncidentIo
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'alertmanager_options')
+        self.alertmanager_options = attributes[:'alertmanager_options']
+      end
 
       if attributes.key?(:'auto_resolve_incident_alerts')
         self.auto_resolve_incident_alerts = attributes[:'auto_resolve_incident_alerts']
@@ -237,6 +245,7 @@ module IncidentIo
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          alertmanager_options == o.alertmanager_options &&
           auto_resolve_incident_alerts == o.auto_resolve_incident_alerts &&
           auto_resolve_timeout_minutes == o.auto_resolve_timeout_minutes &&
           azure_devops_options == o.azure_devops_options &&
@@ -262,7 +271,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [auto_resolve_incident_alerts, auto_resolve_timeout_minutes, azure_devops_options, disabled, email_options, filter_condition_groups, fixed_team_id, heartbeat_options, http_custom_options, jira_options, name, owning_team_ids, rate_limit_sharding, template].hash
+      [alertmanager_options, auto_resolve_incident_alerts, auto_resolve_timeout_minutes, azure_devops_options, disabled, email_options, filter_condition_groups, fixed_team_id, heartbeat_options, http_custom_options, jira_options, name, owning_team_ids, rate_limit_sharding, template].hash
     end
 
     # Builds the object from hash

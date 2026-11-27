@@ -228,6 +228,7 @@ lib/incident_io/models/alert_rules_show_result_v3.rb
 lib/incident_io/models/alert_rules_update_payload_v3.rb
 lib/incident_io/models/alert_rules_update_result_v3.rb
 lib/incident_io/models/alert_slim_v2.rb
+lib/incident_io/models/alert_source_alertmanager_options_v2.rb
 lib/incident_io/models/alert_source_azure_devops_options_v2.rb
 lib/incident_io/models/alert_source_email_options_payload_v2.rb
 lib/incident_io/models/alert_source_email_options_v2.rb

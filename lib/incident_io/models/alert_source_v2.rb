@@ -18,6 +18,8 @@ module IncidentIo
     # URL that can be used to send alert events to this source. This is only set for sources that accept webhook/HTTP events; email sources use the email_address field, and integration-based sources (like Jira) receive events through their native integrations.
     attr_accessor :alert_events_url
 
+    attr_accessor :alertmanager_options
+
     # Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
     attr_accessor :auto_resolve_incident_alerts
 
@@ -63,6 +65,7 @@ module IncidentIo
     def self.attribute_map
       {
         :'alert_events_url' => :'alert_events_url',
+        :'alertmanager_options' => :'alertmanager_options',
         :'auto_resolve_incident_alerts' => :'auto_resolve_incident_alerts',
         :'auto_resolve_timeout_minutes' => :'auto_resolve_timeout_minutes',
         :'azure_devops_options' => :'azure_devops_options',
@@ -96,6 +99,7 @@ module IncidentIo
     def self.openapi_types
       {
         :'alert_events_url' => :'String',
+        :'alertmanager_options' => :'AlertSourceAlertmanagerOptionsV2',
         :'auto_resolve_incident_alerts' => :'Boolean',
         :'auto_resolve_timeout_minutes' => :'Integer',
         :'azure_devops_options' => :'AlertSourceAzureDevopsOptionsV2',
@@ -139,6 +143,10 @@ module IncidentIo
 
       if attributes.key?(:'alert_events_url')
         self.alert_events_url = attributes[:'alert_events_url']
+      end
+
+      if attributes.key?(:'alertmanager_options')
+        self.alertmanager_options = attributes[:'alertmanager_options']
       end
 
       if attributes.key?(:'auto_resolve_incident_alerts')
@@ -299,6 +307,7 @@ module IncidentIo
       return true if self.equal?(o)
       self.class == o.class &&
           alert_events_url == o.alert_events_url &&
+          alertmanager_options == o.alertmanager_options &&
           auto_resolve_incident_alerts == o.auto_resolve_incident_alerts &&
           auto_resolve_timeout_minutes == o.auto_resolve_timeout_minutes &&
           azure_devops_options == o.azure_devops_options &&
@@ -326,7 +335,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [alert_events_url, auto_resolve_incident_alerts, auto_resolve_timeout_minutes, azure_devops_options, email_options, filter_condition_groups, fixed_team_id, heartbeat_options, http_custom_options, id, jira_options, name, owning_team_ids, rate_limit_sharding, secret_token, source_type, template].hash
+      [alert_events_url, alertmanager_options, auto_resolve_incident_alerts, auto_resolve_timeout_minutes, azure_devops_options, email_options, filter_condition_groups, fixed_team_id, heartbeat_options, http_custom_options, id, jira_options, name, owning_team_ids, rate_limit_sharding, secret_token, source_type, template].hash
     end
 
     # Builds the object from hash

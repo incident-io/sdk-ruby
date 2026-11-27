@@ -1362,6 +1362,7 @@ lib/incident_io/models/policy_findings_restore_result_v2.rb
 lib/incident_io/models/policy_findings_show_result_v2.rb
 lib/incident_io/models/policy_follow_up_payload_v2.rb
 lib/incident_io/models/policy_follow_up_v2.rb
+lib/incident_io/models/policy_on_call_readiness_payload_v2.rb
 lib/incident_io/models/policy_on_call_readiness_v2.rb
 lib/incident_io/models/policy_post_mortem_payload_v2.rb
 lib/incident_io/models/policy_post_mortem_v2.rb

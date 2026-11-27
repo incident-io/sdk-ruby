@@ -1308,6 +1308,7 @@ IncidentIo.autoload :PolicyFindingsRestoreResultV2, 'incident_io/models/policy_f
 IncidentIo.autoload :PolicyFindingsShowResultV2, 'incident_io/models/policy_findings_show_result_v2'
 IncidentIo.autoload :PolicyFollowUpPayloadV2, 'incident_io/models/policy_follow_up_payload_v2'
 IncidentIo.autoload :PolicyFollowUpV2, 'incident_io/models/policy_follow_up_v2'
+IncidentIo.autoload :PolicyOnCallReadinessPayloadV2, 'incident_io/models/policy_on_call_readiness_payload_v2'
 IncidentIo.autoload :PolicyOnCallReadinessV2, 'incident_io/models/policy_on_call_readiness_v2'
 IncidentIo.autoload :PolicyPostMortemPayloadV2, 'incident_io/models/policy_post_mortem_payload_v2'
 IncidentIo.autoload :PolicyPostMortemV2, 'incident_io/models/policy_post_mortem_v2'

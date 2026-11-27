@@ -83,7 +83,7 @@ module IncidentIo
         :'expressions' => :'Array<ExpressionPayloadV2>',
         :'follow_up' => :'PolicyFollowUpPayloadV2',
         :'name' => :'String',
-        :'on_call_readiness' => :'PolicyOnCallReadinessV2',
+        :'on_call_readiness' => :'PolicyOnCallReadinessPayloadV2',
         :'policy_type' => :'String',
         :'post_mortem' => :'PolicyPostMortemPayloadV2',
         :'schedule' => :'PolicyScheduleV2',

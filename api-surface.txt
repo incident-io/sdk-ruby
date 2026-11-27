@@ -6598,7 +6598,9 @@ model IncidentIo::PolicyFindingDismissalV2 dismissed_by
 model IncidentIo::PolicyFindingDismissalV2 reason
 model IncidentIo::PolicyFindingFollowUpV2 follow_up_id
 model IncidentIo::PolicyFindingFollowUpV2 incident_id
+model IncidentIo::PolicyFindingOnCallReadinessV2 high_interruption_level
 model IncidentIo::PolicyFindingOnCallReadinessV2 high_urgency
+model IncidentIo::PolicyFindingOnCallReadinessV2 low_interruption_level
 model IncidentIo::PolicyFindingOnCallReadinessV2 low_urgency
 model IncidentIo::PolicyFindingOnCallReadinessV2 user_id
 model IncidentIo::PolicyFindingPostMortemV2 incident_id
@@ -6660,8 +6662,15 @@ model IncidentIo::PolicyFollowUpPayloadV2 run_on_private_incidents
 model IncidentIo::PolicyFollowUpV2 due_date_config
 model IncidentIo::PolicyFollowUpV2 requirements
 model IncidentIo::PolicyFollowUpV2 run_on_private_incidents
+model IncidentIo::PolicyOnCallReadinessPayloadV2 enforcement
+model IncidentIo::PolicyOnCallReadinessPayloadV2 high_interruption_level
+model IncidentIo::PolicyOnCallReadinessPayloadV2 high_urgency
+model IncidentIo::PolicyOnCallReadinessPayloadV2 low_interruption_level
+model IncidentIo::PolicyOnCallReadinessPayloadV2 low_urgency
 model IncidentIo::PolicyOnCallReadinessV2 enforcement
+model IncidentIo::PolicyOnCallReadinessV2 high_interruption_level
 model IncidentIo::PolicyOnCallReadinessV2 high_urgency
+model IncidentIo::PolicyOnCallReadinessV2 low_interruption_level
 model IncidentIo::PolicyOnCallReadinessV2 low_urgency
 model IncidentIo::PolicyPostMortemPayloadV2 due_date_config
 model IncidentIo::PolicyPostMortemPayloadV2 requirements

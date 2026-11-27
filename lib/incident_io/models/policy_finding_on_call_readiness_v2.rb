@@ -16,10 +16,16 @@ require 'time'
 module IncidentIo
   # Set when policy_type is on_call_readiness. The user is always the one the finding is about.
   class PolicyFindingOnCallReadinessV2 < ApiModelBase
-    # The high urgency rules the policy requires, and whether each was met
+    # The high interruption level rules the policy requires, and whether each was met.
+    attr_accessor :high_interruption_level
+
+    # Deprecated: use high_interruption_level, which always has the same value.
     attr_accessor :high_urgency
 
-    # The low urgency rules the policy requires, and whether each was met
+    # The low interruption level rules the policy requires, and whether each was met.
+    attr_accessor :low_interruption_level
+
+    # Deprecated: use low_interruption_level, which always has the same value.
     attr_accessor :low_urgency
 
     # The user whose notification rules fell short
@@ -28,7 +34,9 @@ module IncidentIo
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'high_interruption_level' => :'high_interruption_level',
         :'high_urgency' => :'high_urgency',
+        :'low_interruption_level' => :'low_interruption_level',
         :'low_urgency' => :'low_urgency',
         :'user_id' => :'user_id'
       }
@@ -47,7 +55,9 @@ module IncidentIo
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'high_interruption_level' => :'Array<PolicyFindingReadinessRuleV2>',
         :'high_urgency' => :'Array<PolicyFindingReadinessRuleV2>',
+        :'low_interruption_level' => :'Array<PolicyFindingReadinessRuleV2>',
         :'low_urgency' => :'Array<PolicyFindingReadinessRuleV2>',
         :'user_id' => :'String'
       }
@@ -75,12 +85,28 @@ module IncidentIo
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'high_interruption_level')
+        if (value = attributes[:'high_interruption_level']).is_a?(Array)
+          self.high_interruption_level = value
+        end
+      else
+        self.high_interruption_level = nil
+      end
+
       if attributes.key?(:'high_urgency')
         if (value = attributes[:'high_urgency']).is_a?(Array)
           self.high_urgency = value
         end
       else
         self.high_urgency = nil
+      end
+
+      if attributes.key?(:'low_interruption_level')
+        if (value = attributes[:'low_interruption_level']).is_a?(Array)
+          self.low_interruption_level = value
+        end
+      else
+        self.low_interruption_level = nil
       end
 
       if attributes.key?(:'low_urgency')
@@ -103,8 +129,16 @@ module IncidentIo
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @high_interruption_level.nil?
+        invalid_properties.push('invalid value for "high_interruption_level", high_interruption_level cannot be nil.')
+      end
+
       if @high_urgency.nil?
         invalid_properties.push('invalid value for "high_urgency", high_urgency cannot be nil.')
+      end
+
+      if @low_interruption_level.nil?
+        invalid_properties.push('invalid value for "low_interruption_level", low_interruption_level cannot be nil.')
       end
 
       if @low_urgency.nil?
@@ -122,10 +156,22 @@ module IncidentIo
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @high_interruption_level.nil?
       return false if @high_urgency.nil?
+      return false if @low_interruption_level.nil?
       return false if @low_urgency.nil?
       return false if @user_id.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] high_interruption_level Value to be assigned
+    def high_interruption_level=(high_interruption_level)
+      if high_interruption_level.nil?
+        fail ArgumentError, 'high_interruption_level cannot be nil'
+      end
+
+      @high_interruption_level = high_interruption_level
     end
 
     # Custom attribute writer method with validation
@@ -136,6 +182,16 @@ module IncidentIo
       end
 
       @high_urgency = high_urgency
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] low_interruption_level Value to be assigned
+    def low_interruption_level=(low_interruption_level)
+      if low_interruption_level.nil?
+        fail ArgumentError, 'low_interruption_level cannot be nil'
+      end
+
+      @low_interruption_level = low_interruption_level
     end
 
     # Custom attribute writer method with validation
@@ -163,7 +219,9 @@ module IncidentIo
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          high_interruption_level == o.high_interruption_level &&
           high_urgency == o.high_urgency &&
+          low_interruption_level == o.low_interruption_level &&
           low_urgency == o.low_urgency &&
           user_id == o.user_id
     end
@@ -177,7 +235,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [high_urgency, low_urgency, user_id].hash
+      [high_interruption_level, high_urgency, low_interruption_level, low_urgency, user_id].hash
     end
 
     # Builds the object from hash

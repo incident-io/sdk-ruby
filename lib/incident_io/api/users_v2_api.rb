@@ -163,7 +163,7 @@ module IncidentIo
     end
 
     # ListNotificationRules Users V2
-    # List notification rules for a user. Rules define how and when a user is notified for on-call pages. Only includes high_urgency and low_urgency rules; shift_changes rules are not returned.
+    # List notification rules for a user. Rules define how and when a user is notified for on-call pages. Each rule applies to pages at one interruption level, high or low. Only includes rules for pages; shift_changes rules are not returned.
     # @param user_id [String] The ID of the user whose notification rules you want to list.
     # @param [Hash] opts the optional parameters
     # @return [UsersListNotificationRulesResultV2]
@@ -173,7 +173,7 @@ module IncidentIo
     end
 
     # ListNotificationRules Users V2
-    # List notification rules for a user. Rules define how and when a user is notified for on-call pages. Only includes high_urgency and low_urgency rules; shift_changes rules are not returned.
+    # List notification rules for a user. Rules define how and when a user is notified for on-call pages. Each rule applies to pages at one interruption level, high or low. Only includes rules for pages; shift_changes rules are not returned.
     # @param user_id [String] The ID of the user whose notification rules you want to list.
     # @param [Hash] opts the optional parameters
     # @return [Array<(UsersListNotificationRulesResultV2, Integer, Hash)>] UsersListNotificationRulesResultV2 data, response status code and response headers

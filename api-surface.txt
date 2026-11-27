@@ -6402,6 +6402,7 @@ model IncidentIo::OnCallNotificationRulePhoneDetailsPublicV2 channel
 model IncidentIo::OnCallNotificationRulePublicV2 app
 model IncidentIo::OnCallNotificationRulePublicV2 delay_seconds
 model IncidentIo::OnCallNotificationRulePublicV2 id
+model IncidentIo::OnCallNotificationRulePublicV2 interruption_level
 model IncidentIo::OnCallNotificationRulePublicV2 method_target
 model IncidentIo::OnCallNotificationRulePublicV2 method_type
 model IncidentIo::OnCallNotificationRulePublicV2 phone

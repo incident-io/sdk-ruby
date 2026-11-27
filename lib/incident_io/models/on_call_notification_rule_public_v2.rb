@@ -23,6 +23,9 @@ module IncidentIo
     # Unique identifier for this notification rule
     attr_accessor :id
 
+    # The interruption level of the pages this rule applies to: high or low.  Known values: `high`, `low`
+    attr_accessor :interruption_level
+
     attr_accessor :method_target
 
     # The high-level type of notification method. Phone rules include phone details that distinguish SMS from voice calls.  Known values: `app`, `email`, `microsoft_teams`, `phone`, `slack`, `whatsapp_message`
@@ -30,7 +33,7 @@ module IncidentIo
 
     attr_accessor :phone
 
-    # The urgency level this rule applies to  Known values: `high_urgency`, `low_urgency`
+    # Deprecated: use interruption_level, which always has the same value.  Known values: `high_urgency`, `low_urgency`
     attr_accessor :rule_type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -39,6 +42,7 @@ module IncidentIo
         :'app' => :'app',
         :'delay_seconds' => :'delay_seconds',
         :'id' => :'id',
+        :'interruption_level' => :'interruption_level',
         :'method_target' => :'method_target',
         :'method_type' => :'method_type',
         :'phone' => :'phone',
@@ -62,6 +66,7 @@ module IncidentIo
         :'app' => :'OnCallNotificationRuleAppDetailsPublicV2',
         :'delay_seconds' => :'Integer',
         :'id' => :'String',
+        :'interruption_level' => :'String',
         :'method_target' => :'OnCallNotificationRuleMethodTargetPublicV2',
         :'method_type' => :'String',
         :'phone' => :'OnCallNotificationRulePhoneDetailsPublicV2',
@@ -105,6 +110,12 @@ module IncidentIo
         self.id = nil
       end
 
+      if attributes.key?(:'interruption_level')
+        self.interruption_level = attributes[:'interruption_level']
+      else
+        self.interruption_level = nil
+      end
+
       if attributes.key?(:'method_target')
         self.method_target = attributes[:'method_target']
       else
@@ -145,6 +156,10 @@ module IncidentIo
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
+      if @interruption_level.nil?
+        invalid_properties.push('invalid value for "interruption_level", interruption_level cannot be nil.')
+      end
+
       if @method_target.nil?
         invalid_properties.push('invalid value for "method_target", method_target cannot be nil.')
       end
@@ -167,6 +182,7 @@ module IncidentIo
       return false if !@delay_seconds.nil? && @delay_seconds > 1200
       return false if !@delay_seconds.nil? && @delay_seconds < 0
       return false if @id.nil?
+      return false if @interruption_level.nil?
       return false if @method_target.nil?
       return false if @method_type.nil?
       return false if @rule_type.nil?
@@ -199,6 +215,16 @@ module IncidentIo
       end
 
       @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] interruption_level Value to be assigned
+    def interruption_level=(interruption_level)
+      if interruption_level.nil?
+        fail ArgumentError, 'interruption_level cannot be nil'
+      end
+
+      @interruption_level = interruption_level
     end
 
     # Custom attribute writer method with validation
@@ -239,6 +265,7 @@ module IncidentIo
           app == o.app &&
           delay_seconds == o.delay_seconds &&
           id == o.id &&
+          interruption_level == o.interruption_level &&
           method_target == o.method_target &&
           method_type == o.method_type &&
           phone == o.phone &&
@@ -254,7 +281,7 @@ module IncidentIo
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [app, delay_seconds, id, method_target, method_type, phone, rule_type].hash
+      [app, delay_seconds, id, interruption_level, method_target, method_type, phone, rule_type].hash
     end
 
     # Builds the object from hash

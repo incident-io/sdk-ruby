@@ -19,6 +19,74 @@ module IncidentIo
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # BulkArchiveEntries Catalog V3
+    # Archive up to 250 entries of one catalog type in a single request. This has the same effect as deleting each entry individually. This operation is atomic: if the request fails, no entries are archived.  Entries that don't exist, are already archived, or belong to a different catalog type are skipped and don't fail the request. If any of the entries set attributes that you don't have permission to clear, the request fails with a 403 that lists those entries, and no entries are archived.
+    # @param catalog_bulk_archive_entries_payload_v3 [CatalogBulkArchiveEntriesPayloadV3] 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def catalog_v3_bulk_archive_entries(catalog_bulk_archive_entries_payload_v3, opts = {})
+      catalog_v3_bulk_archive_entries_with_http_info(catalog_bulk_archive_entries_payload_v3, opts)
+      nil
+    end
+
+    # BulkArchiveEntries Catalog V3
+    # Archive up to 250 entries of one catalog type in a single request. This has the same effect as deleting each entry individually. This operation is atomic: if the request fails, no entries are archived.  Entries that don&#39;t exist, are already archived, or belong to a different catalog type are skipped and don&#39;t fail the request. If any of the entries set attributes that you don&#39;t have permission to clear, the request fails with a 403 that lists those entries, and no entries are archived.
+    # @param catalog_bulk_archive_entries_payload_v3 [CatalogBulkArchiveEntriesPayloadV3] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def catalog_v3_bulk_archive_entries_with_http_info(catalog_bulk_archive_entries_payload_v3, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CatalogV3Api.catalog_v3_bulk_archive_entries ...'
+      end
+      # verify the required parameter 'catalog_bulk_archive_entries_payload_v3' is set
+      if @api_client.config.client_side_validation && catalog_bulk_archive_entries_payload_v3.nil?
+        fail ArgumentError, "Missing the required parameter 'catalog_bulk_archive_entries_payload_v3' when calling CatalogV3Api.catalog_v3_bulk_archive_entries"
+      end
+      # resource path
+      local_var_path = '/v3/catalog_entries/actions/bulk_archive'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(catalog_bulk_archive_entries_payload_v3)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['BearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"CatalogV3Api.catalog_v3_bulk_archive_entries",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CatalogV3Api#catalog_v3_bulk_archive_entries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # BulkUpdateEntries Catalog V3
     # Update multiple catalog entries in a single operation. You can update up to 250 entries at once. This operation is atomic - either all entries are updated successfully, or none are updated.
     # @param catalog_bulk_update_entries_payload_v3 [CatalogBulkUpdateEntriesPayloadV3] 

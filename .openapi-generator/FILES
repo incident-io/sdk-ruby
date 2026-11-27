@@ -876,6 +876,7 @@ lib/incident_io/models/call_session_v2.rb
 lib/incident_io/models/call_sessions_list_result_v2.rb
 lib/incident_io/models/call_transcript_entries_list_result_v2.rb
 lib/incident_io/models/call_transcript_entry_v2.rb
+lib/incident_io/models/catalog_bulk_archive_entries_payload_v3.rb
 lib/incident_io/models/catalog_bulk_update_entries_payload_v3.rb
 lib/incident_io/models/catalog_create_entry_payload_v2.rb
 lib/incident_io/models/catalog_create_entry_payload_v3.rb

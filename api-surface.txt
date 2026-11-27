@@ -208,6 +208,8 @@ api IncidentIo::CatalogV2Api#catalog_v2_update_type 2
 api IncidentIo::CatalogV2Api#catalog_v2_update_type_schema 2
 api IncidentIo::CatalogV2Api#catalog_v2_update_type_schema_with_http_info 2
 api IncidentIo::CatalogV2Api#catalog_v2_update_type_with_http_info 2
+api IncidentIo::CatalogV3Api#catalog_v3_bulk_archive_entries 1
+api IncidentIo::CatalogV3Api#catalog_v3_bulk_archive_entries_with_http_info 1
 api IncidentIo::CatalogV3Api#catalog_v3_bulk_update_entries 1
 api IncidentIo::CatalogV3Api#catalog_v3_bulk_update_entries_with_http_info 1
 api IncidentIo::CatalogV3Api#catalog_v3_create_entry 1
@@ -4899,6 +4901,8 @@ model IncidentIo::CallTranscriptEntryV2 id
 model IncidentIo::CallTranscriptEntryV2 medium
 model IncidentIo::CallTranscriptEntryV2 participant_name
 model IncidentIo::CallTranscriptEntryV2 timestamp
+model IncidentIo::CatalogBulkArchiveEntriesPayloadV3 catalog_type_id
+model IncidentIo::CatalogBulkArchiveEntriesPayloadV3 entry_ids
 model IncidentIo::CatalogBulkUpdateEntriesPayloadV3 catalog_type_id
 model IncidentIo::CatalogBulkUpdateEntriesPayloadV3 entries
 model IncidentIo::CatalogBulkUpdateEntriesPayloadV3 update_attributes
